@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="560dp"
+    tools:context=".activities.Fragment_Ceklis7">
+
+    <LinearLayout
+        android:id="@+id/line"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/ta1"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:text="No"
+            android:textAlignment="center"
+            android:layout_marginBottom="5dp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/ta2"
+            android:layout_width="226dp"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@id/ta1"
+            android:text="Perlengkapan"
+            android:layout_marginBottom="5dp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/ta3"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@+id/ta2"
+            android:text="B"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="1dp"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/ta4"
+            android:layout_width="32dp"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@+id/ta3"
+            android:text="R"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="2dp"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/ta5"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@+id/ta4"
+            android:text="T"
+            android:layout_marginBottom="5dp"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/line1"
+        android:layout_below="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tb1"
+        android:layout_width="25dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="10dp"
+        android:text="43"
+        android:layout_below="@+id/ta1"
+        android:textAlignment="center" />
+    <TextView
+        android:id="@+id/tb2"
+        android:layout_width="225dp"
+        android:layout_height="20dp"
+        android:layout_toRightOf="@id/tb1"
+        android:layout_below="@+id/ta2"
+        android:text="Kunci Stir" />
+    <RadioGroup
+        android:id="@+id/rgKunci_Stir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_toRightOf="@id/tb2"
+        android:layout_below="@+id/ta3">
+        <RadioButton
+            android:id="@+id/b43"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:checked="true" />
+        <RadioButton
+            android:id="@+id/r43"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:checked="true"/>
+        <RadioButton
+            android:id="@+id/t43"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:checked="true"/>
+    </RadioGroup>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/teKunci_Stir"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line1"
+        android:layout_marginLeft="35dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="start|top"
+        android:hint="Keterangan"
+        android:inputType="textMultiLine"
+        android:textSize="14sp" />
+
+    -----------------------------------------------------
+
+    <TextView
+        android:id="@+id/tc1"
+        android:layout_width="25dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="10dp"
+        android:text="44"
+        android:layout_below="@+id/teKunci_Stir"
+        android:textAlignment="center" />
+    <TextView
+        android:id="@+id/tc2"
+        android:layout_width="225dp"
+        android:layout_height="20dp"
+        android:layout_toRightOf="@id/tc1"
+        android:layout_below="@+id/teKunci_Stir"
+        android:text="Dongkrak" />
+
+    <RadioGroup
+        android:id="@+id/rgDongkrak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_toRightOf="@id/tc2"
+        android:layout_below="@+id/teKunci_Stir">
+        <RadioButton
+            android:id="@+id/b44"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:checked="true"/>
+        <RadioButton
+            android:id="@+id/r44"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:checked="true"/>
+        <RadioButton
+            android:id="@+id/t44"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:checked="true"/>
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/teDongkrak"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tc2"
+        android:layout_marginLeft="35dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="start|top"
+        android:hint="Keterangan"
+        android:inputType="textMultiLine"
+        android:textSize="14sp" />
+
+    ---------------------------------------------------
+
+    <TextView
+        android:id="@+id/td1"
+        android:layout_width="25dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="10dp"
+        android:text="45"
+        android:layout_below="@+id/teDongkrak"
+        android:textAlignment="center" />
+    <TextView
+        android:id="@+id/td2"
+        android:layout_width="225dp"
+        android:layout_height="20dp"
+        android:layout_toRightOf="@id/td1"
+        android:layout_below="@+id/teDongkrak"
+        android:text="P3K" />
+
+    <RadioGroup
+        android:id="@+id/rgP3K"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_toRightOf="@id/td2"
+        android:layout_below="@+id/teDongkrak">
+
+        <RadioButton
+            android:id="@+id/b45"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:checked="true"/>
+        <RadioButton
+            android:id="@+id/r45"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:checked="true" />
+        <RadioButton
+            android:id="@+id/t45"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:checked="true" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/teP3K"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/td2"
+        android:layout_marginLeft="35dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="start|top"
+        android:hint="Keterangan"
+        android:inputType="textMultiLine"
+        android:textSize="14sp" />
+
+    ---------------------------------------------------
+
+    <TextView
+        android:id="@+id/te1"
+        android:layout_width="25dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="10dp"
+        android:text="46"
+        android:layout_below="@+id/teP3K"
+        android:textAlignment="center" />
+    <TextView
+        android:id="@+id/te2"
+        android:layout_width="225dp"
+        android:layout_height="20dp"
+        android:layout_toRightOf="@id/te1"
+        android:layout_below="@+id/teP3K"
+        android:text="Segitiga Pengaman" />
+    <RadioGroup
+        android:id="@+id/rgSegitiga_Pengaman"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_toRightOf="@id/te2"
+        android:layout_below="@+id/teP3K">
+        <RadioButton
+            android:id="@+id/b46"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:checked="true"/>
+        <RadioButton
+            android:id="@+id/r46"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:checked="true"/>
+        <RadioButton
+            android:id="@+id/t46"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:checked="true"/>
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/teSegitiga_Pengaman"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/te2"
+        android:layout_marginLeft="35dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="start|top"
+        android:hint="Keterangan"
+        android:inputType="textMultiLine"
+        android:textSize="14sp" />
+
+    --------------------------------------------------
+
+    <TextView
+        android:id="@+id/tf1"
+        android:layout_width="25dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="10dp"
+        android:text="47"
+        android:layout_below="@+id/teSegitiga_Pengaman"
+        android:textAlignment="center" />
+    <TextView
+        android:id="@+id/tf2"
+        android:layout_width="225dp"
+        android:layout_height="20dp"
+        android:layout_toRightOf="@id/tf1"
+        android:layout_below="@+id/teSegitiga_Pengaman"
+        android:text="Lap Kanebo" />
+
+    <RadioGroup
+        android:id="@+id/rgLap_Kanebo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_toRightOf="@id/tf2"
+        android:layout_below="@+id/teSegitiga_Pengaman">
+        <RadioButton
+            android:id="@+id/b47"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:checked="true"/>
+        <RadioButton
+            android:id="@+id/r47"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:checked="true"/>
+        <RadioButton
+            android:id="@+id/t47"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:checked="true"/>
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/teLap_Kanebo"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tf2"
+        android:layout_marginLeft="35dp"
+        android:layout_marginBottom="135dp"
+        android:gravity="start|top"
+        android:hint="Keterangan"
+        android:inputType="textMultiLine"
+        android:textSize="14sp" />
+
+    ---------------------------------------------------
+    <ImageButton
+        android:id="@+id/button_ceklis"
+        android:background="@drawable/button_next"
+        android:layout_below="@+id/teLap_Kanebo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="290dp"/>
+
+
+    <ImageButton
+        android:id="@+id/button_Back"
+        android:background="@drawable/button_back"
+        android:layout_below="@+id/teLap_Kanebo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"/>
+
+</RelativeLayout>

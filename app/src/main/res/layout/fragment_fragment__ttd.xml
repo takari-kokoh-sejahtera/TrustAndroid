@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="560dp"
+    tools:context=".activities.Fragment_Ttd">
+<TextView
+    android:id="@+id/text_siganture"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Masukan Nama Penerima"/>
+
+    <EditText
+        android:id="@+id/editext_signature"
+        android:layout_below="@+id/text_siganture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Nama Penerima" />
+    <LinearLayout
+        android:id="@+id/canvasLL"
+        android:layout_below="@+id/editext_signature"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#fff"
+        android:orientation="vertical" />
+    <LinearLayout
+        android:layout_below="@+id/canvasLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal">
+    <Button
+        android:id="@+id/button_save"
+        android:layout_below="@+id/signature_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SAVE"/>
+    <Button
+        android:id="@+id/button_hapus"
+        android:layout_below="@+id/signature_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HAPUS"/>
+    </LinearLayout>
+</RelativeLayout>

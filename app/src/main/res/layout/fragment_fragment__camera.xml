@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.Fragment_Camera">
+
+  <ImageView
+      android:id="@+id/imageview"
+      android:layout_marginTop="10dp"
+      android:layout_marginRight="10dp"
+      android:layout_marginLeft="10dp"
+      android:layout_width="match_parent"
+      android:src="@color/cardview_shadow_start_color"
+      android:layout_height="350dp"
+      android:layout_marginBottom="10dp"/>
+
+  <TextView
+      android:id="@+id/t1"
+      android:layout_marginLeft="68dp"
+      android:layout_marginRight="40dp"
+      android:layout_below="@+id/imageview"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textAlignment="center"
+      android:textSize="16dp"
+      android:text="Foto Kendaraan Tampak Depan"
+      android:layout_marginBottom="10dp"/>
+
+  <ImageButton
+      android:id="@+id/button_camera"
+      android:background="@drawable/kamera"
+      android:layout_marginLeft="120dp"
+      android:layout_marginRight="70dp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/t1"/>
+
+  <TextView
+      android:id="@+id/text"
+      android:layout_marginLeft="148dp"
+      android:layout_marginRight="70dp"
+      android:layout_below="@+id/button_camera"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textAlignment="center"
+      android:textSize="10dp"
+      android:text="Ambil Gambar"
+      android:layout_marginBottom="10dp"/>
+
+  <ImageButton
+      android:id="@+id/button_ceklis"
+      android:background="@drawable/button_next"
+      android:layout_below="@+id/text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="290dp"/>
+
+
+  <ImageButton
+      android:id="@+id/button_Back"
+      android:background="@drawable/button_back"
+      android:layout_below="@+id/text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="15dp"/>
+</RelativeLayout>
