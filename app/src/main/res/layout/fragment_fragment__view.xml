@@ -3,14 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.Fragment_View">
+    tools:context=".viewbstk.Fragment_View"
+    android:background="@drawable/sign_in">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/menu_gallery"
-        android:layout_centerInParent="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+        android:text="VIEW BSTK"
+        android:textSize="30dp"
+        android:layout_gravity="center"
+        android:layout_centerInParent="true" />
 
 </FrameLayout>

@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activities.Fragment_Camera3">
+    android:layout_height="560dp"
+    tools:context=".inputbstk_sebelum.Fragment_Camera3">
 
     <ImageView
         android:id="@+id/imageview3"
@@ -29,8 +29,8 @@
 
     <ImageButton
         android:id="@+id/button_camera"
-        android:background="@drawable/kamera"
-        android:layout_marginLeft="120dp"
+        android:background="@drawable/kamera_foto"
+        android:layout_marginLeft="150dp"
         android:layout_marginRight="70dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
 
     <TextView
         android:id="@+id/text"
-        android:layout_marginLeft="148dp"
+        android:layout_marginLeft="152dp"
         android:layout_marginRight="70dp"
         android:layout_below="@+id/button_camera"
         android:layout_width="wrap_content"

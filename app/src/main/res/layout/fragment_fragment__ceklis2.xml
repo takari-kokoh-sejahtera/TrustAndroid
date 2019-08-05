@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="560dp"
-    tools:context=".activities.Fragment_Ceklis2">
+    tools:context=".inputbstk_sebelum.Fragment_Ceklis2">
 
 <LinearLayout
     android:id="@+id/line"

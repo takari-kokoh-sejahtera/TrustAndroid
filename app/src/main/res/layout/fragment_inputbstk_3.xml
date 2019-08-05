@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="560dp"
+    tools:context=".inputbstk_sesudah.Inputbstk_3">
+
+    <LinearLayout
+        android:id="@+id/line"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/ta1"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:text="No"
+            android:textAlignment="center"
+            android:layout_marginBottom="5dp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/ta2"
+            android:layout_width="226dp"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@id/ta1"
+            android:text="Perlengkapan"
+            android:layout_marginBottom="5dp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/ta3"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@+id/ta2"
+            android:text="B"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="1dp"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/ta4"
+            android:layout_width="32dp"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@+id/ta3"
+            android:text="R"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="2dp"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/ta5"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@+id/ta4"
+            android:text="T"
+            android:layout_marginBottom="5dp"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/line1"
+        android:layout_below="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tb1"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:text="15"
+            android:layout_below="@+id/ta1"
+            android:textAlignment="center" />
+        <TextView
+            android:id="@+id/tb2"
+            android:layout_width="225dp"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@id/tb1"
+            android:layout_below="@+id/ta2"
+            android:text="Tape/Radio/CD/DVD/TV Player" />
+        <RadioGroup
+            android:id="@+id/rgTape_Radio_CD_DVD_TV_Player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_toRightOf="@id/tb2"
+            android:layout_below="@+id/ta3">
+            <RadioButton
+                android:id="@+id/b15"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:checked="true" />
+            <RadioButton
+                android:id="@+id/r15"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:checked="true"/>
+            <RadioButton
+                android:id="@+id/t15"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:checked="true"/>
+        </RadioGroup>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/teTape_Radio_CD_DVD_TV_Player"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line1"
+        android:layout_marginLeft="35dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="start|top"
+        android:hint="Keterangan"
+        android:inputType="textMultiLine"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:id="@+id/line2"
+        android:layout_below="@+id/teTape_Radio_CD_DVD_TV_Player"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tc1"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:text="16"
+            android:layout_below="@+id/teTape_Radio_CD_DVD_TV_Player"
+            android:textAlignment="center" />
+        <TextView
+            android:id="@+id/tc2"
+            android:layout_width="225dp"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@id/tc1"
+            android:layout_below="@+id/teTape_Radio_CD_DVD_TV_Player"
+            android:text="Remote Tape/Radio/CD/DVD/TV Player" />
+        <RadioGroup
+            android:id="@+id/rgRemote_Tape_Radio_CD_DVD_TV_Player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_toRightOf="@id/tc2"
+            android:layout_below="@+id/teTape_Radio_CD_DVD_TV_Player">
+            <RadioButton
+                android:id="@+id/b16"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:checked="true"/>
+            <RadioButton
+                android:id="@+id/r16"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:checked="true"/>
+            <RadioButton
+                android:id="@+id/t16"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:checked="true"/>
+        </RadioGroup>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/teRemote_Tape_Radio_CD_DVD_TV_Player"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line2"
+        android:layout_marginLeft="35dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="start|top"
+        android:hint="Keterangan"
+        android:inputType="textMultiLine"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:id="@+id/line3"
+        android:layout_below="@+id/teRemote_Tape_Radio_CD_DVD_TV_Player"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/td1"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:text="17"
+            android:layout_below="@+id/teRemote_Tape_Radio_CD_DVD_TV_Player"
+            android:textAlignment="center" />
+        <TextView
+            android:id="@+id/td2"
+            android:layout_width="225dp"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@id/td1"
+            android:layout_below="@+id/teRemote_Tape_Radio_CD_DVD_TV_Player"
+            android:text="Alarm + Remote + Key" />
+        <RadioGroup
+            android:id="@+id/rgAlarm_Remote_Key"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_toRightOf="@id/td2"
+            android:layout_below="@+id/teRemote_Tape_Radio_CD_DVD_TV_Player">
+            <RadioButton
+                android:id="@+id/b17"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:checked="true"/>
+            <RadioButton
+                android:id="@+id/r17"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:checked="true" />
+            <RadioButton
+                android:id="@+id/t17"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:checked="true" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/teAlarm_Remote_Key"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line3"
+        android:layout_marginLeft="35dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="start|top"
+        android:hint="Keterangan"
+        android:inputType="textMultiLine"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:id="@+id/line4"
+        android:layout_below="@+id/teAlarm_Remote_Key"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/te1"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:text="18"
+            android:layout_below="@+id/teAlarm_Remote_Key"
+            android:textAlignment="center" />
+        <TextView
+            android:id="@+id/te2"
+            android:layout_width="225dp"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@id/te1"
+            android:layout_below="@+id/teAlarm_Remote_Key"
+            android:text="Central Lock" />
+        <RadioGroup
+            android:id="@+id/rgCentral_Lock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_toRightOf="@id/te2"
+            android:layout_below="@+id/teAlarm_Remote_Key">
+            <RadioButton
+                android:id="@+id/b18"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:checked="true"/>
+            <RadioButton
+                android:id="@+id/r18"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:checked="true"/>
+            <RadioButton
+                android:id="@+id/t18"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:checked="true"/>
+        </RadioGroup>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/teCentral_Lock"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line4"
+        android:layout_marginLeft="35dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="start|top"
+        android:hint="Keterangan"
+        android:inputType="textMultiLine"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:id="@+id/line5"
+        android:layout_below="@+id/teCentral_Lock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tf1"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:text="19"
+            android:layout_below="@+id/teCentral_Lock"
+            android:textAlignment="center" />
+        <TextView
+            android:id="@+id/tf2"
+            android:layout_width="225dp"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@id/tf1"
+            android:layout_below="@+id/teCentral_Lock"
+            android:text="Power Window" />
+        <RadioGroup
+            android:id="@+id/rgPower_Window"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_toRightOf="@id/tf2"
+            android:layout_below="@+id/teCentral_Lock">
+            <RadioButton
+                android:id="@+id/b19"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:checked="true"/>
+            <RadioButton
+                android:id="@+id/r19"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:checked="true"/>
+            <RadioButton
+                android:id="@+id/t19"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:checked="true"/>
+        </RadioGroup>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/tePower_Window"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line5"
+        android:layout_marginLeft="35dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="start|top"
+        android:hint="Keterangan"
+        android:inputType="textMultiLine"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:id="@+id/line6"
+        android:layout_below="@+id/tePower_Window"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tg1"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:text="20"
+            android:layout_below="@+id/tePower_Window"
+            android:textAlignment="center" />
+        <TextView
+            android:id="@+id/tg2"
+            android:layout_width="225dp"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@id/tg1"
+            android:layout_below="@+id/tePower_Window"
+            android:text="Switch Mirror" />
+        <RadioGroup
+            android:id="@+id/rgSwitch_Mirror"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_toRightOf="@id/tg2"
+            android:layout_below="@+id/tePower_Window">
+            <RadioButton
+                android:id="@+id/b20"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:checked="true"/>
+            <RadioButton
+                android:id="@+id/r20"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:checked="true"/>
+            <RadioButton
+                android:id="@+id/t20"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:checked="true"/>
+        </RadioGroup>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/teSwitch_Mirror"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line6"
+        android:layout_marginLeft="35dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="start|top"
+        android:hint="Keterangan"
+        android:inputType="textMultiLine"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:id="@+id/line7"
+        android:layout_below="@+id/teSwitch_Mirror"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/th1"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:text="21"
+            android:layout_below="@+id/teSwitch_Mirror"
+            android:textAlignment="center" />
+        <TextView
+            android:id="@+id/th2"
+            android:layout_width="225dp"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@id/th1"
+            android:layout_below="@+id/teSwitch_Mirror"
+            android:text="Air Conditioner" />
+        <RadioGroup
+            android:id="@+id/rgAir_Conditioner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_toRightOf="@id/th2"
+            android:layout_below="@+id/teSwitch_Mirror">
+            <RadioButton
+                android:id="@+id/b21"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:checked="true"/>
+            <RadioButton
+                android:id="@+id/r21"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:checked="true"/>
+            <RadioButton
+                android:id="@+id/t21"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:checked="true"/>
+        </RadioGroup>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/teAir_Conditioner"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line7"
+        android:layout_marginLeft="35dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="start|top"
+        android:hint="Keterangan"
+        android:inputType="textMultiLine"
+        android:textSize="14sp" />
+
+    <ImageButton
+        android:id="@+id/button_ceklis"
+        android:background="@drawable/button_next"
+        android:layout_below="@+id/teAir_Conditioner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="290dp"/>
+
+
+    <ImageButton
+        android:id="@+id/button_Back"
+        android:background="@drawable/button_back"
+        android:layout_below="@+id/teAir_Conditioner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"/>
+
+
+</RelativeLayout>
