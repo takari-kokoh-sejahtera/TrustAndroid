@@ -10,10 +10,10 @@ public interface ApiInterface {
 
 
     @FormUrlEncoded
-    @POST("login.php")
+    @POST("users")
     Call<ResponLogin> MainRequest(
-            @Field("username") String username,
-            @Field("password") String password
+            @Field("User_Name") String User_Name,
+            @Field("Password") String Password
     );
 
 }
