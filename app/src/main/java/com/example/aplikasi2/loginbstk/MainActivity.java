@@ -62,12 +62,12 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<ResponLogin> call, Response<ResponLogin> response) {
 
             String stat = response.body().getStatus();
-                if (stat.equals("success")) {
+                if (stat.equals("Success")) {
                         Intent intent = new Intent(MainActivity.this, MenuUtama.class);
                         startActivity(intent);
                         finish();
 
-                } else if (stat.equals("failed")) {
+                } else if (stat.equals("Error")) {
                     Toast.makeText(MainActivity.this, "Username/Password tidak sesuai", Toast.LENGTH_SHORT).show();
                 }
 

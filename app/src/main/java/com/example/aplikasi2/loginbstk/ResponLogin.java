@@ -5,39 +5,32 @@ import com.google.gson.annotations.SerializedName;
 
 public class ResponLogin {
 
-    @SerializedName("status")
+    @SerializedName("Status")
     @Expose
-    private String status;
-    @SerializedName("message")
+    private String Status;
+
+    @SerializedName("Message")
     @Expose
-    private String message;
-    @SerializedName("data")
-    @Expose
-    private User data;
+    private String Message;
 
     public String getStatus() {
-        return status;
+        return Status;
     }
 
     public void setStatus(String status) {
-        this.status = status;
+        Status = status;
     }
 
     public String getMessage() {
-        return message;
+        return Message;
     }
 
     public void setMessage(String message) {
-        this.message = message;
+        Message = message;
     }
-
-    public User getData() {
-        return data;
-    }
-
-    public void setData(User data) {
-        this.data = data;
-    }
+//    @SerializedName("Message")
+//    @Expose
+//    private User data;
 
 }
 
