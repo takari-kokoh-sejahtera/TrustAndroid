@@ -5,12 +5,8 @@ import com.google.gson.annotations.SerializedName;
 
 public class ResponLogin {
 
-    @SerializedName("Status")
-    @Expose
     private String Status;
 
-    @SerializedName("Message")
-    @Expose
     private String Message;
 
     public String getStatus() {
