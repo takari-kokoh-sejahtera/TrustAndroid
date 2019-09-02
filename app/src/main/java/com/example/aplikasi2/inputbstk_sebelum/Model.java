@@ -100,19 +100,18 @@ public class Model {
     public String Lap_Kanebo;
     public String Lap_Kanebo_Ket;
     public String Foto_Kendaraan_Tampak_Depan;
-    public String Foto_Kendaraan_Tampak_Depan_decode;
     public String Foto_Kendaraan_Tampak_Belakang;
     public String Foto_Kendaraan_Tampak_Samping_Kanan;
     public String Foto_Kendaraan_Tampak_Samping_Kiri;
     public String apar;
     public String fuel;
-    public int isi_tangki;
+    public Integer isi_tangki;
     public String isi_tangki_ket;
-    public String km;
+    public Integer km;
     public String velg_ban;
     public String tutup_dop;
     public String signature;
     public String signature_image;
-
+    public Integer CreatedBy;
 }
 

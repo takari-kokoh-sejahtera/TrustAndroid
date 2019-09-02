@@ -1,7 +1,6 @@
 package com.example.aplikasi2.inputbstk_sesudah;
 
 public class Modelbstk {
-    public String Nama_Customer;
     public String Nomor_Plat_Kendaraan;
     public String Automatic_Light_Switch;
     public String Automatic_Light_Switch_Ket;
@@ -98,7 +97,6 @@ public class Modelbstk {
     public String Lap_Kanebo;
     public String Lap_Kanebo_Ket;
     public String Foto_Kendaraan_Tampak_Depan;
-    public String Foto_Kendaraan_Tampak_Depan_decode;
     public String Foto_Kendaraan_Tampak_Belakang;
     public String Foto_Kendaraan_Tampak_Samping_Kanan;
     public String Foto_Kendaraan_Tampak_Samping_Kiri;
@@ -106,9 +104,10 @@ public class Modelbstk {
     public String fuel;
     public int isi_tangki;
     public String isi_tangki_ket;
-    public String km;
+    public Integer km;
     public String velg_ban;
     public String tutup_dop;
     public String signature;
     public String signature_image;
+    public Integer CreatedBy;
 }

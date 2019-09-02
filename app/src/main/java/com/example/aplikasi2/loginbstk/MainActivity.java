@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.aplikasi2.Model.Globals;
+import com.example.aplikasi2.Model.UserNew;
 import com.example.aplikasi2.R;
 import com.example.aplikasi2.homebstk.MenuUtama;
 //import com.example.aplikasi2.utils.SessionManager;
@@ -57,15 +59,23 @@ public class MainActivity extends AppCompatActivity {
         String username = input_username.getText().toString();
         String password = input_password.getText().toString();
 
-        apiservice. MainRequest(username,password).enqueue(new Callback<ResponLogin>() {
+        UserNew user = new UserNew();
+        user.User_Name = username;
+        user.Password = password;
+
+        apiservice.MainRequest(username,password).enqueue(new Callback<ResponLogin>() {
             @Override
             public void onResponse(Call<ResponLogin> call, Response<ResponLogin> response) {
 
-            String stat = response.body().getStatus();
+                String stat = response.body().getStatus();
                 if (stat.equals("Success")) {
-                        Intent intent = new Intent(MainActivity.this, MenuUtama.class);
-                        startActivity(intent);
-                        finish();
+//                    Intent intent = new Intent(MainActivity.this, MenuUtama.class);
+                    Intent intent = new Intent(MainActivity.this, MenuUtama.class);
+                    startActivity(intent);
+                    Globals g = (Globals)getApplication();
+                    g.setUser_Name(username);
+                    g.setUser_ID(response.body().getValue());
+                    finish();
 
                 } else if (stat.equals("Error")) {
                     Toast.makeText(MainActivity.this, "Username/Password tidak sesuai", Toast.LENGTH_SHORT).show();

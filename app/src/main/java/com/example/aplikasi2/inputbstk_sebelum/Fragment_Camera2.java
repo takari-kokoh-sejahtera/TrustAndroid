@@ -59,11 +59,6 @@ public class Fragment_Camera2 extends Fragment {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                byte [] byteArray2 = Base64.decode(model.Foto_Kendaraan_Tampak_Belakang.getBytes(), Base64.DEFAULT);
-//                Bitmap bitmap2 = BitmapFactory.
-//                        decodeByteArray(byteArray2, 0, byteArray2.length);
-//                imageView2.setImageBitmap(bitmap2);
-
                 next_Fragment(model); }
         });
 
@@ -71,10 +66,6 @@ public class Fragment_Camera2 extends Fragment {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                byte [] byteArray2 = Base64.decode(model.Foto_Kendaraan_Tampak_Belakang.getBytes(), Base64.DEFAULT);
-//                Bitmap bitmap2 = BitmapFactory.
-//                        decodeByteArray(byteArray2, 0, byteArray2.length);
-//                imageView2.setImageBitmap(bitmap2);
                 back_Fragment(); }
         });
 
@@ -95,7 +86,6 @@ public class Fragment_Camera2 extends Fragment {
                 imageView2.setImageBitmap(bitmap2);
             }
         }
-
     }
 
     private void next_Fragment(Model model) {

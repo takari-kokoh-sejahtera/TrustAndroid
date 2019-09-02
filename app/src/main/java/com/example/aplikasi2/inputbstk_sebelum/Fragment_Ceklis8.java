@@ -24,15 +24,15 @@ public class Fragment_Ceklis8 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_fragment__ceklis8, container, false);
-        Spinner spinner_appar = (Spinner) view.findViewById(R.id.spinner_apar);
-        Spinner spinner_fuel = (Spinner) view.findViewById(R.id.spinner_fuel);
-        Spinner spinner_velg_ban = (Spinner) view.findViewById(R.id.spinner_velg_ban);
-        Spinner spinner_tutup_dop = (Spinner) view.findViewById(R.id.spinner_velg_tutup_dop);
-        SeekBar seekbar_bensin = (SeekBar) view.findViewById(R.id.seekbar_bensin);
+        final Spinner spinner_appar = (Spinner) view.findViewById(R.id.spinner_apar);
+        final Spinner spinner_fuel = (Spinner) view.findViewById(R.id.spinner_fuel);
+        final Spinner spinner_velg_ban = (Spinner) view.findViewById(R.id.spinner_velg_ban);
+        final Spinner spinner_tutup_dop = (Spinner) view.findViewById(R.id.spinner_velg_tutup_dop);
+        final SeekBar seekbar_bensin = (SeekBar) view.findViewById(R.id.seekbar_bensin);
         ImageButton button_next = (ImageButton) view.findViewById(R.id.button_next);
         ImageButton button_back = (ImageButton) view.findViewById(R.id.button_back);
-        EditText edittext_km = (EditText) view.findViewById(R.id.textedit_km);
-        TextView text_seekbar = (TextView) view.findViewById(R.id.text_seekbar);
+        final EditText edittext_km = (EditText) view.findViewById(R.id.textedit_km);
+        final TextView text_seekbar = (TextView) view.findViewById(R.id.text_seekbar);
 
         ArrayAdapter<CharSequence> adapter_appar = ArrayAdapter.createFromResource(this.getActivity(),
                 R.array.string_apar, android.R.layout.simple_spinner_item);
@@ -111,7 +111,9 @@ public class Fragment_Ceklis8 extends Fragment {
                 model.fuel = spinner_fuel.getSelectedItem().toString();
                 model.velg_ban = spinner_velg_ban.getSelectedItem().toString();
                 model.tutup_dop = spinner_tutup_dop.getSelectedItem().toString();
-                model.km = edittext_km.getText().toString();
+                if (edittext_km.getText().toString() == ""){
+                    model.km = Integer.parseInt(edittext_km.getText().toString());
+                }
                 model.isi_tangki_ket = text_seekbar.getText().toString();
                 model.isi_tangki = seekbar_bensin.getProgress();
                 next_Fragment(model); }
@@ -123,7 +125,7 @@ public class Fragment_Ceklis8 extends Fragment {
                 model.fuel = spinner_fuel.getSelectedItem().toString();
                 model.velg_ban = spinner_velg_ban.getSelectedItem().toString();
                 model.tutup_dop = spinner_tutup_dop.getSelectedItem().toString();
-                model.km = edittext_km.getText().toString();
+                model.km = Integer.parseInt(edittext_km.getText().toString());
                 model.isi_tangki_ket = text_seekbar.getText().toString();
                 model.isi_tangki = seekbar_bensin.getProgress();
                 back_Fragment(); }

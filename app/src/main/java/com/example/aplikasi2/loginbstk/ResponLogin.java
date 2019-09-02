@@ -9,6 +9,17 @@ public class ResponLogin {
 
     private String Message;
 
+    private Integer Value;
+
+    public Integer getValue() {
+        return Value;
+    }
+
+    public void setValue(Integer value) {
+        Value = value;
+    }
+
+
     public String getStatus() {
         return Status;
     }

@@ -38,7 +38,7 @@ public class Fragment_Ttd extends Fragment {
         Button clear = (Button) view.findViewById(R.id.clear);
         ImageButton button1 = (ImageButton) view.findViewById(R.id.button_next);
         ImageButton button2 = (ImageButton) view.findViewById(R.id.button_back);
-        EditText editText_signature = (EditText) view.findViewById(R.id.textedit_signature);
+        final EditText editText_signature = (EditText) view.findViewById(R.id.textedit_signature);
 
         if (model.signature != null) {
             editText_signature.setText(model.signature);

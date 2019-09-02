@@ -2,12 +2,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.aplikasi2">
+    <!-- <uses-sdk android:minSdkVersion="8" /> -->
+    <!-- <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/> -->
+    <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="18"/> -->
+    <!-- <uses-feature android:name="android.hardware.camera" android:required="true" /> -->
+    <uses-feature
+        android:name="android.hardware.Camera"
+        android:required="true" />
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".Model.Globals"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,10 +26,11 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="HardcodedDebugMode">
+        <activity android:name=".loginbstk.TestActivity"></activity>
         <activity
             android:name=".homebstk.MenuUtama"
             android:label="@string/menu_home"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".loginbstk.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
