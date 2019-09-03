@@ -110,7 +110,6 @@ public class Inputbstk_Signature2 extends Fragment {
                 } else if (stat.equals("Error")) {
                     Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                 }
-
             }
 
             @Override

@@ -1,5 +1,6 @@
 package com.example.aplikasi2.loginbstk;
 
+import com.example.aplikasi2.Model.BSTKView;
 import com.example.aplikasi2.Model.Ms_Customers;
 import com.example.aplikasi2.Model.Ms_Vehicles;
 import com.example.aplikasi2.Model.Ts_BSTKBefores;
@@ -255,6 +256,9 @@ public interface ApiInterface {
 
     @GET("BSTKBeforeForAfter")
     Call<List<Ts_BSTKBefores>> GetBSTKBeforeForAfter(@Query("id") Integer id);
+
+    @GET("BSTKView")
+    Call<List<BSTKView>> GetBSTKView(@Query("id") Integer id);
 
     @GET("Customer")
     Call<List<Ms_Customers>> GetCustomer();
