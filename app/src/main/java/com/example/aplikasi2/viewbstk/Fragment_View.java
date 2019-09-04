@@ -51,8 +51,6 @@ public class Fragment_View extends Fragment {
         Globals g = (Globals) getActivity().getApplication();
         View view = inflater.inflate(R.layout.fragment_fragment__view, container, false);
 
-
-        final Spinner spinner_customer = (Spinner) view.findViewById(R.id.spinner_cus);
         listView = (ListView) view.findViewById(R.id.listView);
 
 
