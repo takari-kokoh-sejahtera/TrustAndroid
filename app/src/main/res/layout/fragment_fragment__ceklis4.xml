@@ -6,7 +6,7 @@
     tools:context=".inputbstk_sebelum.Fragment_Ceklis4">
 
  <LinearLayout
-     android:id="@+id/line"
+     android:id="@+id/line4"
      android:layout_marginTop="10dp"
      android:layout_width="match_parent"
      android:layout_height="wrap_content">
@@ -59,8 +59,8 @@
  </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/line1"
-        android:layout_below="@+id/line"
+        android:id="@+id/line41"
+        android:layout_below="@+id/line4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     <TextView
@@ -107,7 +107,7 @@
         android:id="@+id/teSafety_Belt"
         android:layout_width="290dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/line1"
+        android:layout_below="@+id/line41"
         android:layout_marginLeft="35dp"
         android:layout_marginBottom="5dp"
         android:gravity="start|top"

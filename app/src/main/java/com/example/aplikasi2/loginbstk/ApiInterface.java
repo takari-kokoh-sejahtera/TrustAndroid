@@ -4,10 +4,12 @@ import com.example.aplikasi2.Model.BSTKView;
 import com.example.aplikasi2.Model.Ms_Customers;
 import com.example.aplikasi2.Model.Ms_Vehicles;
 import com.example.aplikasi2.Model.Ts_BSTKBefores;
+import com.example.aplikasi2.inputbstk_sebelum.Model;
 
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -138,6 +140,11 @@ public interface ApiInterface {
             @Field("signature_image") String signature_image,
             @Field("CreatedBy") Integer CreatedBy
     );
+    @DELETE("BSTKBefore")
+    Call<ResponLogin> BSTKBeforeDelete(
+            @Query("id") Integer id
+    );
+
 
 
     @FormUrlEncoded
@@ -259,6 +266,12 @@ public interface ApiInterface {
 
     @GET("BSTKView")
     Call<List<BSTKView>> GetBSTKView(@Query("id") Integer id);
+
+    @GET("BSTKBefore")
+    Call<List<Model>> GetBSTKBefore();
+
+    @GET("BSTKBefore")
+    Call<Model> GetBSTKBefore(@Query("id") Integer id);
 
     @GET("Customer")
     Call<List<Ms_Customers>> GetCustomer();

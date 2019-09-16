@@ -7,14 +7,17 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +26,8 @@ import com.example.aplikasi2.Model.BSTKView;
 import com.example.aplikasi2.Model.Globals;
 import com.example.aplikasi2.Model.Ts_BSTKBefores;
 import com.example.aplikasi2.R;
+import com.example.aplikasi2.inputbstk_sebelum.Fragment_Camera2;
+import com.example.aplikasi2.inputbstk_sebelum.Model;
 import com.example.aplikasi2.loginbstk.ApiClient;
 import com.example.aplikasi2.loginbstk.ApiInterface;
 
@@ -37,13 +42,14 @@ import retrofit2.Response;
 public class Fragment_View extends Fragment {
 
     ListView listView;
+    int mID[];
     String mTitle[];
     String mDescription[];
     int images[];
 
     Context context;
     ApiInterface apiservice;
-
+    MyAdapter adapter;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -63,10 +69,12 @@ public class Fragment_View extends Fragment {
                 try {
 //                  masukin ke adapter
                     Integer i = 0;
+                    mID = new int[gabungan.size()];
                     mTitle = new String[gabungan.size()];
                     mDescription = new String[gabungan.size()];
                     images = new int[gabungan.size()];
                     for (BSTKView gabung : gabungan) {
+                        mID[i] = gabung.BSTKBefore_ID;
                         mTitle[i] = gabung.Company_Name.toString();
                         mDescription[i] = gabung.license_no.toString() + ";" + gabung.Type.toString();
                         if (gabung.IsCompleted) {
@@ -76,7 +84,7 @@ public class Fragment_View extends Fragment {
                         }
                         i++;
                     }
-                    MyAdapter adapter = new MyAdapter(context, mTitle, mDescription, images);
+                    adapter = new MyAdapter(context, mTitle, mDescription, images);
                     listView.setAdapter(adapter);
 
                 } catch (Exception e) {
@@ -92,28 +100,64 @@ public class Fragment_View extends Fragment {
 
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                TextView txtOptionDigit =  view.findViewById(R.id.txtOptionDigit);
+
+                txtOptionDigit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        PopupMenu popupMenu = new PopupMenu(context, txtOptionDigit);
+                        popupMenu.inflate(R.menu.option_menu);
+                        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem item) {
+                                switch (item.getItemId()) {
+                                    case R.id.mnu_item_edit:
+                                        Toast.makeText(context, "Saved", Toast.LENGTH_LONG).show();
+                                        break;
+                                    case R.id.mnu_item_delete:
+                                        try {
+                                            Delete_Fragment(mID[position]);
+                                            Toast.makeText(context, "Deleted", Toast.LENGTH_LONG).show();
+                                            break;
+                                        }catch (Exception e){
+                                            Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG).show();
+                                            break;
+                                        }
+                                    default:
+                                        break;
+                                }
+
+                                return false;
+                            }
+                        });
+                        popupMenu.show();
+                    }
+                });
+
                 if (position == 0) {
                     Toast.makeText(context, "Facebook Description", Toast.LENGTH_SHORT).show();
                 }
-                if (position == 0) {
+                if (position == 1) {
                     Toast.makeText(context, "Whatsapp Description", Toast.LENGTH_SHORT).show();
                 }
-                if (position == 0) {
+                if (position == 2) {
                     Toast.makeText(context, "Twitter Description", Toast.LENGTH_SHORT).show();
-                }
-                if (position == 0) {
-                    Toast.makeText(context, "Instagram Description", Toast.LENGTH_SHORT).show();
-                }
-                if (position == 0) {
-                    Toast.makeText(context, "Youtube Description", Toast.LENGTH_SHORT).show();
                 }
             }
         });
         return view;
     }
-
+    private void Delete_Fragment(int ID) {
+        Fragment_Delete fragment = new Fragment_Delete();
+        fragment.BSTKBefore_ID = ID;
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
     class MyAdapter extends ArrayAdapter<String> {
 
         Context context;
@@ -127,7 +171,10 @@ public class Fragment_View extends Fragment {
             this.rTitle = title;
             this.rDescription = description;
             this.rImgs = imgs;
+        }
 
+        public MyAdapter(@NonNull Context context, int resource, @NonNull String[] objects) {
+            super(context, resource, objects);
         }
 
         @NonNull

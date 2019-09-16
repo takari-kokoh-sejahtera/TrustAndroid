@@ -16,17 +16,31 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
-
-        <TextView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Main Title"
-            android:textColor="#000"
-            android:textStyle="bold"
-            android:layout_margin="5dp"
-            android:textSize="14sp"
-            android:id="@+id/textView1"
-            />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Main Title"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:layout_margin="5dp"
+                android:textSize="14sp"
+                android:id="@+id/textView1"
+                />
+            <TextView
+                android:id="@+id/txtOptionDigit"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:paddingLeft="@dimen/cardview_compat_inset_shadow"
+                android:text="&#8942;"
+                android:textAppearance="?android:textAppearanceLarge" />
+
+        </RelativeLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -38,6 +52,7 @@
             android:textSize="10sp"
             android:id="@+id/textView2"
             />
+
         <!--so our layout is set-->
 
     </LinearLayout>

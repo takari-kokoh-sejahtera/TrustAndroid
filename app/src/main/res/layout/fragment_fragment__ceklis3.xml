@@ -6,7 +6,7 @@
     tools:context=".inputbstk_sebelum.Fragment_Ceklis3">
 
 <LinearLayout
-    android:id="@+id/line"
+    android:id="@+id/line3"
     android:layout_marginTop="10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -59,8 +59,8 @@
 </LinearLayout>
 
 <LinearLayout
-    android:id="@+id/line1"
-    android:layout_below="@+id/line"
+    android:id="@+id/line31"
+    android:layout_below="@+id/line3"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <TextView
@@ -107,7 +107,7 @@
         android:id="@+id/teTape_Radio_CD_DVD_TV_Player"
         android:layout_width="290dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/line1"
+        android:layout_below="@+id/line31"
         android:layout_marginLeft="35dp"
         android:layout_marginBottom="5dp"
         android:gravity="start|top"
@@ -116,7 +116,7 @@
         android:textSize="14sp" />
 
 <LinearLayout
-    android:id="@+id/line2"
+    android:id="@+id/line32"
     android:layout_below="@+id/teTape_Radio_CD_DVD_TV_Player"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -164,7 +164,7 @@
         android:id="@+id/teRemote_Tape_Radio_CD_DVD_TV_Player"
         android:layout_width="290dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/line2"
+        android:layout_below="@+id/line32"
         android:layout_marginLeft="35dp"
         android:layout_marginBottom="5dp"
         android:gravity="start|top"
@@ -173,7 +173,7 @@
         android:textSize="14sp" />
 
 <LinearLayout
-    android:id="@+id/line3"
+    android:id="@+id/line33"
     android:layout_below="@+id/teRemote_Tape_Radio_CD_DVD_TV_Player"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -221,7 +221,7 @@
         android:id="@+id/teAlarm_Remote_Key"
         android:layout_width="290dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/line3"
+        android:layout_below="@+id/line33"
         android:layout_marginLeft="35dp"
         android:layout_marginBottom="5dp"
         android:gravity="start|top"
@@ -230,7 +230,7 @@
         android:textSize="14sp" />
 
 <LinearLayout
-    android:id="@+id/line4"
+    android:id="@+id/line34"
     android:layout_below="@+id/teAlarm_Remote_Key"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -278,7 +278,7 @@
         android:id="@+id/teCentral_Lock"
         android:layout_width="290dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/line4"
+        android:layout_below="@+id/line34"
         android:layout_marginLeft="35dp"
         android:layout_marginBottom="5dp"
         android:gravity="start|top"
@@ -287,7 +287,7 @@
         android:textSize="14sp" />
 
 <LinearLayout
-    android:id="@+id/line5"
+    android:id="@+id/line35"
     android:layout_below="@+id/teCentral_Lock"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -335,7 +335,7 @@
         android:id="@+id/tePower_Window"
         android:layout_width="290dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/line5"
+        android:layout_below="@+id/line35"
         android:layout_marginLeft="35dp"
         android:layout_marginBottom="5dp"
         android:gravity="start|top"
@@ -344,7 +344,7 @@
         android:textSize="14sp" />
 
 <LinearLayout
-    android:id="@+id/line6"
+    android:id="@+id/line36"
     android:layout_below="@+id/tePower_Window"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
@@ -392,7 +392,7 @@
         android:id="@+id/teSwitch_Mirror"
         android:layout_width="290dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/line6"
+        android:layout_below="@+id/line36"
         android:layout_marginLeft="35dp"
         android:layout_marginBottom="5dp"
         android:gravity="start|top"
@@ -401,7 +401,7 @@
         android:textSize="14sp" />
 
 <LinearLayout
-    android:id="@+id/line7"
+    android:id="@+id/line37"
     android:layout_below="@+id/teSwitch_Mirror"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -449,7 +449,7 @@
         android:id="@+id/teAir_Conditioner"
         android:layout_width="290dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/line7"
+        android:layout_below="@+id/line37"
         android:layout_marginLeft="35dp"
         android:layout_marginBottom="5dp"
         android:gravity="start|top"

@@ -6,7 +6,7 @@
     tools:context=".inputbstk_sebelum.Fragment_Ceklis5">
 
     <LinearLayout
-        android:id="@+id/line"
+        android:id="@+id/line5"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -59,7 +59,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/line1"
+        android:id="@+id/line51"
         android:layout_below="@+id/line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -107,7 +107,7 @@
         android:id="@+id/teWiper_Blade"
         android:layout_width="290dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/line1"
+        android:layout_below="@+id/line51"
         android:layout_marginLeft="35dp"
         android:layout_marginBottom="5dp"
         android:gravity="start|top"
