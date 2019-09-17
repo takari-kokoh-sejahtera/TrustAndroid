@@ -1,6 +1,8 @@
 package com.example.aplikasi2.Model;
 
 import android.app.Application;
+import android.view.View;
+import android.widget.LinearLayout;
 
 public class Globals extends Application {
     private Integer user_ID;
@@ -22,4 +24,15 @@ public class Globals extends Application {
         this.user_Name = user_Name;
     }
 
+    //untuk enable disable control
+    public static void enableControl(boolean enabled, LinearLayout layout) {
+        for (int i = 0; i < layout.getChildCount(); i++) {
+            View child = layout.getChildAt(i);
+            if (child instanceof LinearLayout) {
+                LinearLayout layouts = (LinearLayout) child;
+                enableControl(false, layouts);
+            }
+            child.setEnabled(false);
+        }
+    }
 }

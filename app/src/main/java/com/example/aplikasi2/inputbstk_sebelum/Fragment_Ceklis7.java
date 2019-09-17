@@ -53,13 +53,13 @@ public class Fragment_Ceklis7 extends Fragment {
 
         if(model.Kunci_Stir!=null){
             te_Kunci_Stir.setText(model.Kunci_Stir_Ket);
-            if(model.Kunci_Stir == "B"){
+            if(model.Kunci_Stir.equals("B")){
                 b_Kunci_Stir.setChecked(true);
             }
-            else if(model.Kunci_Stir == "R"){
+            else if(model.Kunci_Stir.equals("R")){
                 r_Kunci_Stir.setChecked(true);
             }
-            else if(model.Kunci_Stir == "T"){
+            else if(model.Kunci_Stir.equals("T")){
                 t_Kunci_Stir.setChecked(true);
             }
         }
@@ -68,46 +68,46 @@ public class Fragment_Ceklis7 extends Fragment {
             if(model.Dongkrak =="B"){
                 b_Dongkrak.setChecked(true);
             }
-            else if(model.Dongkrak == "R"){
+            else if(model.Dongkrak.equals("R")){
                 r_Dongkrak.setChecked(true);
             }
-            else if(model.Dongkrak == "T"){
+            else if(model.Dongkrak.equals("T")){
                 t_Dongkrak.setChecked(true);
             }
         }
         if(model.P3K!=null){
             te_P3K.setText(model.P3K_Ket);
-            if(model.P3K == "B"){
+            if(model.P3K.equals("B")){
                 b_P3K.setChecked(true);
             }
-            else if(model.P3K == "R"){
+            else if(model.P3K.equals("R")){
                 r_Dongkrak.setChecked(true);
             }
-            else if(model.P3K == "T"){
+            else if(model.P3K.equals("T")){
                 t_Dongkrak.setChecked(true);
             }
         }
         if(model.Segitiga_Pengaman!=null){
             te_Segitiga_Pengaman.setText(model.Segitiga_Pengaman_Ket);
-            if(model.Segitiga_Pengaman == "B"){
+            if(model.Segitiga_Pengaman.equals("B")){
                 b_Segitiga_Pengaman.setChecked(true);
             }
-            else if(model.Segitiga_Pengaman == "R"){
+            else if(model.Segitiga_Pengaman.equals("R")){
                 r_Segitiga_Pengaman.setChecked(true);
             }
-            else if(model.Segitiga_Pengaman == "T"){
+            else if(model.Segitiga_Pengaman.equals("T")){
                 t_Segitiga_Pengaman.setChecked(true);
             }
         }
         if(model.Lap_Kanebo!=null){
             te_Lap_Kanebo.setText(model.Lap_Kanebo_Ket);
-            if(model.Lap_Kanebo == "B"){
+            if(model.Lap_Kanebo.equals("B")){
                 b_Lap_Kanebo.setChecked(true);
             }
-            else if(model.Lap_Kanebo == "R"){
+            else if(model.Lap_Kanebo.equals("R")){
                 r_Lap_Kanebo.setChecked(true);
             }
-            else if(model.Lap_Kanebo == "T"){
+            else if(model.Lap_Kanebo.equals("T")){
                 t_Lap_Kanebo.setChecked(true);
             }
         }

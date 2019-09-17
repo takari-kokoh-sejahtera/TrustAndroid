@@ -113,5 +113,7 @@ public class Model {
     public String signature;
     public String signature_image;
     public Integer CreatedBy;
+    public Boolean IsEdited;
+    public Integer BSTKBefore_ID;
 }
 

@@ -115,12 +115,13 @@ public class Fragment_View extends Fragment {
                             public boolean onMenuItemClick(MenuItem item) {
                                 switch (item.getItemId()) {
                                     case R.id.mnu_item_edit:
-                                        Toast.makeText(context, "Saved", Toast.LENGTH_LONG).show();
+                                        Edit_Fragment(mID[position]);
+//                                        Toast.makeText(context, "Saved", Toast.LENGTH_LONG).show();
                                         break;
                                     case R.id.mnu_item_delete:
                                         try {
                                             Delete_Fragment(mID[position]);
-                                            Toast.makeText(context, "Deleted", Toast.LENGTH_LONG).show();
+//                                            Toast.makeText(context, "Deleted", Toast.LENGTH_LONG).show();
                                             break;
                                         }catch (Exception e){
                                             Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG).show();
@@ -137,21 +138,29 @@ public class Fragment_View extends Fragment {
                     }
                 });
 
-                if (position == 0) {
-                    Toast.makeText(context, "Facebook Description", Toast.LENGTH_SHORT).show();
-                }
-                if (position == 1) {
-                    Toast.makeText(context, "Whatsapp Description", Toast.LENGTH_SHORT).show();
-                }
-                if (position == 2) {
-                    Toast.makeText(context, "Twitter Description", Toast.LENGTH_SHORT).show();
-                }
+//                if (position == 0) {
+//                    Toast.makeText(context, "Facebook Description", Toast.LENGTH_SHORT).show();
+//                }
+//                if (position == 1) {
+//                    Toast.makeText(context, "Whatsapp Description", Toast.LENGTH_SHORT).show();
+//                }
+//                if (position == 2) {
+//                    Toast.makeText(context, "Twitter Description", Toast.LENGTH_SHORT).show();
+//                }
             }
         });
         return view;
     }
     private void Delete_Fragment(int ID) {
         Fragment_Delete fragment = new Fragment_Delete();
+        fragment.BSTKBefore_ID = ID;
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+    private void Edit_Fragment(int ID) {
+        Fragment_Edit fragment = new Fragment_Edit();
         fragment.BSTKBefore_ID = ID;
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, fragment);

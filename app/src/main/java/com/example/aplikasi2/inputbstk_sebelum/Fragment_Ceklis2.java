@@ -65,85 +65,85 @@ public class Fragment_Ceklis2 extends Fragment {
 
         if(model.Lampu_Belakang!=null){
             te_Lampu_Belakang.setText(model.Lampu_Belakang_Ket);
-            if(model.Lampu_Belakang == "B"){
+            if(model.Lampu_Belakang.equals("B")){
                 b_Lampu_Belakang.setChecked(true);
             }
-            else if(model.Lampu_Belakang == "R"){
+            else if(model.Lampu_Belakang.equals("R")){
                 r_Lampu_Belakang.setChecked(true);
             }
-            else if(model.Lampu_Belakang == "T"){
+            else if(model.Lampu_Belakang.equals("T")){
                 t_Lampu_Belakang.setChecked(true);
             }
         }
         if(model.Lampu_Rem!=null){
             te_Lampu_Rem.setText(model.Lampu_Rem_Ket);
-            if(model.Lampu_Rem == "B"){
+            if(model.Lampu_Rem.equals("B")){
                 b_Lampu_Rem.setChecked(true);
             }
-            else if(model.Lampu_Rem == "R"){
+            else if(model.Lampu_Rem.equals("R")){
                 r_Lampu_Rem.setChecked(true);
             }
-            else if(model.Lampu_Rem == "T"){
+            else if(model.Lampu_Rem.equals("T")){
                 t_Lampu_Rem.setChecked(true);
             }
         }
         if(model.Lampu_Mundur!=null){
             te_Lampu_Mundur.setText(model.Lampu_Mundur_Ket);
-            if(model.Lampu_Mundur == "B"){
+            if(model.Lampu_Mundur.equals("B")){
                 b_Lampu_Mundur.setChecked(true);
             }
-            if(model.Lampu_Mundur == "R"){
+            if(model.Lampu_Mundur.equals("R")){
                 r_Lampu_Mundur.setChecked(true);
             }
-            if(model.Lampu_Mundur == "T"){
+            if(model.Lampu_Mundur.equals("T")){
                 t_Lampu_Mundur.setChecked(true);
             }
         }
         if(model.Lampu_Dashboard!=null){
             te_Lampu_Dashboard.setText(model.Lampu_Dashboard_Ket);
-            if(model.Lampu_Dashboard == "B"){
+            if(model.Lampu_Dashboard.equals("B")){
                 b_Lampu_Dashboard.setChecked(true);
             }
-            if(model.Lampu_Dashboard == "R"){
+            if(model.Lampu_Dashboard.equals("R")){
                 r_Lampu_Dashboard.setChecked(true);
             }
-            if(model.Lampu_Dashboard == "T"){
+            if(model.Lampu_Dashboard.equals("T")){
                 t_Lampu_Dashboard.setChecked(true);
             }
         }
         if(model.Lampu_Plafond_Depan_dan_Belakang!=null){
             te_Lampu_Plafond_Depan.setText(model.Lampu_Plafond_Depan_dan_Belakang_Ket);
-            if(model.Lampu_Plafond_Depan_dan_Belakang == "B"){
+            if(model.Lampu_Plafond_Depan_dan_Belakang.equals("B")){
                 b_Lampu_Plafond_Depan.setChecked(true);
             }
-            if(model.Lampu_Plafond_Depan_dan_Belakang == "R"){
+            if(model.Lampu_Plafond_Depan_dan_Belakang.equals("R")){
                 r_Lampu_Plafond_Depan.setChecked(true);
             }
-            if(model.Lampu_Plafond_Depan_dan_Belakang == "T"){
+            if(model.Lampu_Plafond_Depan_dan_Belakang.equals("T")){
                 t_Lampu_Plafond_Depan.setChecked(true);
             }
         }
         if(model.Klakson!=null){
             te_Klakson.setText(model.Klakson_Ket);
-            if(model.Klakson == "B"){
+            if(model.Klakson.equals("B")){
                 b_Klakson.setChecked(true);
             }
-            if(model.Klakson == "R"){
+            if(model.Klakson.equals("R")){
                 r_Klakson.setChecked(true);
             }
-            if(model.Klakson == "T"){
+            if(model.Klakson.equals("T")){
                 t_Klakson.setChecked(true);
             }
         }
         if(model.Antena!=null){
             te_Antena.setText(model.Antena_Ket);
-            if(model.Antena == "B"){
+            if(model.Antena.equals("B")){
                 b_Antena.setChecked(true);
             }
-            if(model.Antena == "R"){
+            if(model.Antena.equals("R")){
                 r_Antena.setChecked(true);
             }
-            if(model.Antena == "T"){
+            if(model.Antena.equals("T")){
                 t_Antena.setChecked(true);
             }
         }

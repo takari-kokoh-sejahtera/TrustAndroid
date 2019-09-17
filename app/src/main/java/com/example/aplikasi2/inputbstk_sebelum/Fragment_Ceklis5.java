@@ -63,85 +63,85 @@ public class Fragment_Ceklis5 extends Fragment {
 
         if(model.Wiper_Blade!=null){
             te_Wiper_Blade.setText(model.Wiper_Blade_Ket);
-            if(model.Wiper_Blade == "B"){
+            if(model.Wiper_Blade.equals("B")){
                 b_Wiper_Blade.setChecked(true);
             }
-            else if(model.Wiper_Blade == "R"){
+            else if(model.Wiper_Blade.equals("R")){
                 r_Wiper_Blade.setChecked(true);
             }
-            else if(model.Wiper_Blade == "T"){
+            else if(model.Wiper_Blade.equals("T")){
                 t_Wiper_Blade.setChecked(true);
             }
         }
         if(model.Windshield_Washer!=null){
             te_Windshield_Washer.setText(model.Windshield_Washer_Ket);
-            if(model.Windshield_Washer == "B"){
+            if(model.Windshield_Washer.equals("B")){
                 b_Windshield_Washer.setChecked(true);
             }
-            else if(model.Windshield_Washer == "R"){
+            else if(model.Windshield_Washer.equals("R")){
                 r_Windshield_Washer.setChecked(true);
             }
-            else if(model.Windshield_Washer == "T"){
+            else if(model.Windshield_Washer.equals("T")){
                 t_Windshield_Washer.setChecked(true);
             }
         }
         if(model.Talang_Air!=null){
             te_Talang_Air.setText(model.Talang_Air_Ket);
-            if (model.Talang_Air == "B") {
+            if (model.Talang_Air.equals("B")) {
                 b_Talang_Air.setChecked(true);
             }
-            else if(model.Talang_Air == "R"){
+            else if(model.Talang_Air.equals("R")){
                 r_Talang_Air.setChecked(true);
             }
-            else if(model.Talang_Air == "T"){
+            else if(model.Talang_Air.equals("T")){
                 t_Talang_Air.setChecked(true);
             }
         }
         if(model.Fender_Lumpur_Depan_dan_Belakang!=null){
             te_Fender_Lumpur.setText(model.Fender_Lumpur_Depan_dan_Belakang_Ket);
-            if(model.Fender_Lumpur_Depan_dan_Belakang == "B"){
+            if(model.Fender_Lumpur_Depan_dan_Belakang.equals("B")){
                 b_Fender_Lumpur.setChecked(true);
             }
-            else if(model.Fender_Lumpur_Depan_dan_Belakang == "R"){
+            else if(model.Fender_Lumpur_Depan_dan_Belakang.equals("R")){
                 r_Fender_Lumpur.setChecked(true);
             }
-            else if(model.Fender_Lumpur_Depan_dan_Belakang == "T"){
+            else if(model.Fender_Lumpur_Depan_dan_Belakang.equals("T")){
                 t_Fender_Lumpur.setChecked(true);
             }
         }
         if(model.Spion_Kiri_Kanan!=null){
             te_Spion_Kiri_Kanan.setText(model.Spion_Kiri_Kanan_Ket);
-            if(model.Spion_Kiri_Kanan == "B"){
+            if(model.Spion_Kiri_Kanan.equals("B")){
                 b_Spion_Kiri_Kanan.setChecked(true);
             }
-            else if(model.Spion_Kiri_Kanan == "R"){
+            else if(model.Spion_Kiri_Kanan.equals("R")){
                 r_Spion_Kiri_Kanan.setChecked(true);
             }
-            else if(model.Spion_Kiri_Kanan == "T"){
+            else if(model.Spion_Kiri_Kanan.equals("T")){
                 t_Spion_Kiri_Kanan.setChecked(true);
             }
         }
         if(model.Tutup_Bensin!=null){
             te_Tutup_Bensin.setText(model.Tutup_Bensin_Ket);
-            if(model.Tutup_Bensin == "B"){
+            if(model.Tutup_Bensin.equals("B")){
                 b_Tutup_Bensin.setChecked(true);
             }
-            else if(model.Tutup_Bensin == "R"){
+            else if(model.Tutup_Bensin.equals("R")){
                 r_Tutup_Bensin.setChecked(true);
             }
-            else if(model.Tutup_Bensin == "T"){
+            else if(model.Tutup_Bensin.equals("T")){
                 t_Tutup_Bensin.setChecked(true);
             }
         }
         if(model.Emblem_Logo!=null){
             te_Emblem_Logo.setText(model.Emblem_Logo_Ket);
-            if(model.Emblem_Logo == "B"){
+            if(model.Emblem_Logo.equals("B")){
                 b_Emblem_Logo.setChecked(true);
             }
-            else if(model.Emblem_Logo == "R"){
+            else if(model.Emblem_Logo.equals("R")){
                 r_Emblem_Logo.setChecked(true);
             }
-            else if(model.Emblem_Logo == "T"){
+            else if(model.Emblem_Logo.equals("T")){
                 t_Emblem_Logo.setChecked(true);
             }
         }

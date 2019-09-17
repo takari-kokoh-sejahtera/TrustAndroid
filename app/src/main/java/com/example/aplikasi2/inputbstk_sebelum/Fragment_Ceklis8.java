@@ -111,7 +111,7 @@ public class Fragment_Ceklis8 extends Fragment {
                 model.fuel = spinner_fuel.getSelectedItem().toString();
                 model.velg_ban = spinner_velg_ban.getSelectedItem().toString();
                 model.tutup_dop = spinner_tutup_dop.getSelectedItem().toString();
-                if (edittext_km.getText().toString() == ""){
+                if (edittext_km.getText().toString() != ""){
                     model.km = Integer.parseInt(edittext_km.getText().toString());
                 }
                 model.isi_tangki_ket = text_seekbar.getText().toString();
@@ -125,7 +125,9 @@ public class Fragment_Ceklis8 extends Fragment {
                 model.fuel = spinner_fuel.getSelectedItem().toString();
                 model.velg_ban = spinner_velg_ban.getSelectedItem().toString();
                 model.tutup_dop = spinner_tutup_dop.getSelectedItem().toString();
-                model.km = Integer.parseInt(edittext_km.getText().toString());
+                if (edittext_km.getText().toString() != ""){
+                    model.km = Integer.parseInt(edittext_km.getText().toString());
+                }
                 model.isi_tangki_ket = text_seekbar.getText().toString();
                 model.isi_tangki = seekbar_bensin.getProgress();
                 back_Fragment(); }

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".viewbstk.Fragment_Delete">
-
+    android:orientation="vertical"
+    android:layout_margin="5dp"
+    tools:context=".viewbstk.Fragment_Edit">
     <LinearLayout
         android:id="@+id/layoutTOOP"
         android:layout_width="match_parent"
@@ -2878,6 +2879,7 @@
                     android:layout_marginBottom="10dp"/>
 
                 <TextView
+                    android:id="@+id/txtDepan"
                     android:layout_marginLeft="68dp"
                     android:layout_marginRight="40dp"
                     android:layout_below="@+id/imageviewDepan"
@@ -2888,6 +2890,14 @@
                     android:textSize="16dp"
                     android:text="Foto Kendaraan Tampak Depan"
                     android:layout_marginBottom="10dp"/>
+                <ImageButton
+                    android:id="@+id/button_camera_depan"
+                    android:background="@drawable/kamera_foto"
+                    android:layout_marginLeft="150dp"
+                    android:layout_marginRight="70dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtDepan"/>
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -2904,6 +2914,7 @@
                     android:layout_marginBottom="10dp"/>
 
                 <TextView
+                    android:id="@+id/txtBelakang"
                     android:layout_marginLeft="68dp"
                     android:layout_marginRight="40dp"
                     android:layout_below="@+id/imageviewBelakang"
@@ -2914,6 +2925,14 @@
                     android:textSize="16dp"
                     android:text="Foto Kendaraan Tampak Belakang"
                     android:layout_marginBottom="10dp"/>
+                <ImageButton
+                    android:id="@+id/button_camera_belakang"
+                    android:background="@drawable/kamera_foto"
+                    android:layout_marginLeft="150dp"
+                    android:layout_marginRight="70dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtBelakang"/>
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -2930,6 +2949,7 @@
                     android:layout_marginBottom="10dp"/>
 
                 <TextView
+                    android:id="@+id/txtKanan"
                     android:layout_marginLeft="68dp"
                     android:layout_marginRight="40dp"
                     android:layout_below="@+id/imageviewKanan"
@@ -2940,6 +2960,15 @@
                     android:textSize="16dp"
                     android:text="Foto Kendaraan Tampak Kanan"
                     android:layout_marginBottom="10dp"/>
+                <ImageButton
+                    android:id="@+id/button_camera_kanan"
+                    android:background="@drawable/kamera_foto"
+                    android:layout_marginLeft="150dp"
+                    android:layout_marginRight="70dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtKanan"/>
+
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -2956,6 +2985,7 @@
                     android:layout_marginBottom="10dp"/>
 
                 <TextView
+                    android:id="@+id/txtkiri"
                     android:layout_marginLeft="68dp"
                     android:layout_marginRight="40dp"
                     android:layout_below="@+id/imageviewKiri"
@@ -2966,6 +2996,14 @@
                     android:textSize="16dp"
                     android:text="Foto Kendaraan Tampak Kiri"
                     android:layout_marginBottom="10dp"/>
+                <ImageButton
+                    android:id="@+id/button_camera_kiri"
+                    android:background="@drawable/kamera_foto"
+                    android:layout_marginLeft="150dp"
+                    android:layout_marginRight="70dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtkiri"/>
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -3008,6 +3046,4 @@
         </LinearLayout>
     </ScrollView>
 
-
-
-</RelativeLayout>
+</LinearLayout>

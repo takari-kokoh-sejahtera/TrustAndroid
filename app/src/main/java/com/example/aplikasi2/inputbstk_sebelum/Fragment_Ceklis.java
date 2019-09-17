@@ -68,71 +68,71 @@ public class Fragment_Ceklis extends Fragment {
        if (model.Automatic_Light_Switch!= null)
         {
             te_Automatic_Light_Switch.setText(model.Automatic_Light_Switch_Ket);
-            if ( model.Automatic_Light_Switch == "B")
+            if ( model.Automatic_Light_Switch.equals("B"))
             {b_Automatic_Light_Switch.setChecked(true);}
-            else if ( model.Automatic_Light_Switch == "R")
+            else if ( model.Automatic_Light_Switch.equals("R"))
             {r_Automatic_Light_Switch.setChecked(true);}
-            else if ( model.Automatic_Light_Switch == "T")
+            else if ( model.Automatic_Light_Switch.equals("T"))
             {t_Automatic_Light_Switch.setChecked(true);}
         }
         if (model.Lampu_Kecil!= null)
         {
             te_Lampu_Kecil.setText(model.Lampu_Kecil_Ket);
-            if ( model.Lampu_Kecil == "B")
+            if ( model.Lampu_Kecil.equals("B"))
             {b_Lampu_Kecil.setChecked(true);}
-            else if ( model.Lampu_Kecil == "R")
+            else if ( model.Lampu_Kecil.equals("R"))
             {r_Lampu_Kecil.setChecked(true);}
-            else if ( model.Lampu_Kecil == "T")
+            else if ( model.Lampu_Kecil.equals("T"))
             {t_Lampu_Kecil.setChecked(true);}
         }
         if (model.Lampu_Dekat!= null)
         {
             te_Lampu_Dekat.setText(model.Lampu_Dekat_Ket);
-            if ( model.Lampu_Dekat == "B")
+            if ( model.Lampu_Dekat.equals("B"))
             {b_Lampu_Dekat.setChecked(true);}
-            else if ( model.Lampu_Dekat == "R")
+            else if ( model.Lampu_Dekat.equals("R"))
             {r_Lampu_Dekat.setChecked(true);}
-            else if ( model.Lampu_Dekat == "T")
+            else if ( model.Lampu_Dekat.equals("T"))
             {t_Lampu_Dekat.setChecked(true);}
         }
         if (model.Lampu_Jauh!= null)
         {
             te_Lampu_Jauh.setText(model.Lampu_Jauh_Ket);
-            if ( model.Lampu_Jauh == "B")
+            if ( model.Lampu_Jauh.equals("B"))
             {b_Lampu_Jauh.setChecked(true);}
-            else if ( model.Lampu_Jauh == "R")
+            else if ( model.Lampu_Jauh.equals("R"))
             {r_Lampu_Jauh.setChecked(true);}
-            else if ( model.Lampu_Jauh == "T")
+            else if ( model.Lampu_Jauh.equals("T"))
             {t_Lampu_Jauh.setChecked(true);}
         }
         if (model.Lampu_Kabut_Fog_Lamp!= null)
         {
             te_Lampu_Kabut_Fog_Lamp.setText(model.Lampu_Kabut_Fog_Lamp_Ket);
-            if ( model.Lampu_Kabut_Fog_Lamp == "B")
+            if ( model.Lampu_Kabut_Fog_Lamp.equals("B"))
             {b_Lampu_Kabut_Fog_Lamp.setChecked(true);}
-            else if ( model.Lampu_Kabut_Fog_Lamp == "R")
+            else if ( model.Lampu_Kabut_Fog_Lamp.equals("R"))
             {r_Lampu_Kabut_Fog_Lamp.setChecked(true);}
-            else if ( model.Lampu_Kabut_Fog_Lamp == "T")
+            else if ( model.Lampu_Kabut_Fog_Lamp.equals("T"))
             {t_Lampu_Kabut_Fog_Lamp.setChecked(true);}
         }
         if (model.Lampu_Sign_Depan!= null)
         {
             te_Lampu_Sign_Depan.setText(model.Lampu_Sign_Depan_Ket);
-            if ( model.Lampu_Sign_Depan == "B")
+            if ( model.Lampu_Sign_Depan.equals("B"))
             {b_Lampu_Sign_Depan.setChecked(true);}
-            else if ( model.Lampu_Sign_Depan == "R")
+            else if ( model.Lampu_Sign_Depan.equals("R"))
             {r_Lampu_Sign_Depan.setChecked(true);}
-            else if ( model.Lampu_Sign_Depan == "T")
+            else if ( model.Lampu_Sign_Depan.equals("T"))
             {t_Lampu_Sign_Depan.setChecked(true);}
         }
         if (model.Lampu_Sign_Belakang!= null)
         {
             te_Lampu_Sign_Belakang.setText(model.Lampu_Sign_Belakang_Ket);
-            if ( model.Lampu_Sign_Belakang == "B")
+            if ( model.Lampu_Sign_Belakang.equals("B"))
             {b_Lampu_Sign_Belakang.setChecked(true);}
-            else if ( model.Lampu_Sign_Belakang == "R")
+            else if ( model.Lampu_Sign_Belakang.equals("R"))
             {r_Lampu_Sign_Belakang.setChecked(true);}
-            else if ( model.Lampu_Sign_Belakang == "T")
+            else if ( model.Lampu_Sign_Belakang.equals("T"))
             {t_Lampu_Sign_Belakang.setChecked(true);}
         }
 

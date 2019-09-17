@@ -63,85 +63,85 @@ public class Fragment_Ceklis3 extends Fragment {
 
         if(model.Tape_Radio_CD_DVD_TV_Player!=null){
             te_Tape_Radio.setText(model.Tape_Radio_CD_DVD_TV_Player_Ket);
-            if(model.Tape_Radio_CD_DVD_TV_Player == "B"){
+            if(model.Tape_Radio_CD_DVD_TV_Player.equals("B")){
                 b_Tape_Radio.setChecked(true);
             }
-            else if(model.Tape_Radio_CD_DVD_TV_Player == "R"){
+            else if(model.Tape_Radio_CD_DVD_TV_Player.equals("R")){
                 r_Tape_Radio.setChecked(true);
             }
-            else if (model.Tape_Radio_CD_DVD_TV_Player == "T"){
+            else if (model.Tape_Radio_CD_DVD_TV_Player.equals("T")){
                 t_Tape_Radio.setChecked(true);
             }
         }
         if (model.Remote_Tape_Radio_CD_DVD_TV_Player!=null){
             te_Remote_Tape.setText(model.Remote_Tape_Radio_CD_DVD_TV_Player_Ket);
-            if(model.Remote_Tape_Radio_CD_DVD_TV_Player == "B"){
+            if(model.Remote_Tape_Radio_CD_DVD_TV_Player.equals("B")){
                 b_Remote_Tape.setChecked(true);
             }
-            else if(model.Remote_Tape_Radio_CD_DVD_TV_Player == "R"){
+            else if(model.Remote_Tape_Radio_CD_DVD_TV_Player.equals("R")){
                 r_Remote_Tape.setChecked(true);
             }
-            else if (model.Remote_Tape_Radio_CD_DVD_TV_Player == "T"){
+            else if (model.Remote_Tape_Radio_CD_DVD_TV_Player.equals("T")){
                 t_Remote_Tape.setChecked(true);
             }
         }
         if (model.Alarm_Remote_Key!=null){
             te_Alarm_Remote_Key.setText(model.Alarm_Remote_Key_Ket);
-            if(model.Alarm_Remote_Key == "B"){
+            if(model.Alarm_Remote_Key.equals("B")){
                 b_Alarm_Remote_Key.setChecked(true);
             }
-            else if(model.Alarm_Remote_Key == "R"){
+            else if(model.Alarm_Remote_Key.equals("R")){
                 r_Alarm_Remote_Key.setChecked(true);
             }
-            else if(model.Alarm_Remote_Key == "T"){
+            else if(model.Alarm_Remote_Key.equals("T")){
                 t_Alarm_Remote_Key.setChecked(true);
             }
         }
         if(model.Central_Lock!=null){
             te_Central_Lock.setText(model.Central_Lock_Ket);
-            if(model.Central_Lock == "B"){
+            if(model.Central_Lock.equals("B")){
                 b_Central_Lock.setChecked(true);
             }
-            else if(model.Central_Lock == "R"){
+            else if(model.Central_Lock.equals("R")){
                 r_Central_Lock.setChecked(true);
             }
-            else if(model.Central_Lock == "T"){
+            else if(model.Central_Lock.equals("T")){
                 t_Central_Lock.setChecked(true);
             }
         }
         if(model.Power_Window!=null){
             te_Power_Window.setText(model.Power_Window_Ket);
-            if(model.Power_Window == "B"){
+            if(model.Power_Window.equals("B")){
                 b_Power_Window.setChecked(true);
             }
-            else if(model.Power_Window == "R"){
+            else if(model.Power_Window.equals("R")){
                 r_Power_Window.setChecked(true);
             }
-            else if(model.Power_Window == "T"){
+            else if(model.Power_Window.equals("T")){
                 t_Power_Window.setChecked(true);
             }
         }
         if(model.Switch_Mirror!=null){
             te_Switch_Mirror.setText(model.Switch_Mirror_Ket);
-            if(model.Switch_Mirror == "B"){
+            if(model.Switch_Mirror.equals("B")){
                 b_Switch_Mirror.setChecked(true);
             }
-            else if(model.Switch_Mirror == "R"){
+            else if(model.Switch_Mirror.equals("R")){
                 r_Switch_Mirror.setChecked(true);
             }
-            else if(model.Switch_Mirror == "T"){
+            else if(model.Switch_Mirror.equals("T")){
                 t_Switch_Mirror.setChecked(true);
             }
         }
         if(model.Air_Conditioner!=null){
             te_Air_Conditioner.setText(model.Air_Conditioner_Ket);
-            if(model.Air_Conditioner == "B"){
+            if(model.Air_Conditioner.equals("B")){
                 b_Air_Conditioner.setChecked(true);
             }
-            else if(model.Air_Conditioner == "R"){
+            else if(model.Air_Conditioner.equals("R")){
                 r_Air_Conditioner.setChecked(true);
             }
-            else if(model.Air_Conditioner == "T"){
+            else if(model.Air_Conditioner.equals("T")){
                 t_Air_Conditioner.setChecked(true);
             }
 

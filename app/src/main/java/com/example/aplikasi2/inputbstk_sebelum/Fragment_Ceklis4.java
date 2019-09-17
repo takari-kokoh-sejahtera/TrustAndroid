@@ -63,85 +63,85 @@ public class Fragment_Ceklis4 extends Fragment {
 
         if(model.Safety_Belt!=null){
             te_Safety_Belt.setText(model.Safety_Belt_Ket);
-            if(model.Safety_Belt == "B"){
+            if(model.Safety_Belt.equals("B")){
                 b_Safety_Belt.setChecked(true);
             }
-            else if(model.Safety_Belt == "R"){
+            else if(model.Safety_Belt.equals("R")){
                 r_Safety_Belt.setChecked(true);
             }
-            else if(model.Safety_Belt == "T"){
+            else if(model.Safety_Belt.equals("T")){
                 t_Safety_Belt.setChecked(true);
             }
         }
         if(model.Karpet!=null){
             te_Karpet.setText(model.Karpet_Ket);
-            if(model.Karpet == "B"){
+            if(model.Karpet.equals("B")){
                 b_Karpet.setChecked(true);
             }
-            else if(model.Karpet == "R"){
+            else if(model.Karpet.equals("R")){
                 r_Karpet.setChecked(true);
             }
-            else if(model.Karpet == "T"){
+            else if(model.Karpet.equals("T")){
                 t_Asbak.setChecked(true);
             }
         }
         if(model.Lighter!=null){
             te_Lighter.setText(model.Lighter_Ket);
-            if(model.Lighter == "B"){
+            if(model.Lighter.equals("B")){
                 b_Lighter.setChecked(true);
             }
-            else if(model.Lighter == "R"){
+            else if(model.Lighter.equals("R")){
                 r_Lighter.setChecked(true);
             }
-            else if(model.Lighter == "T"){
+            else if(model.Lighter.equals("T")){
                 t_Lighter.setChecked(true);
             }
         }
         if(model.Asbak!=null){
             te_Asbak.setText(model.Asbak_Ket);
-            if(model.Asbak == "B"){
+            if(model.Asbak.equals("B")){
                 b_Asbak.setChecked(true);
             }
-            else if(model.Asbak == "R"){
+            else if(model.Asbak.equals("R")){
                 r_Asbak.setChecked(true);
             }
-            else if(model.Asbak == "T"){
+            else if(model.Asbak.equals("T")){
                 t_Asbak.setChecked(true);
             }
         }
         if(model.Sarung_Jok!=null){
             te_Sarung_Jok.setText(model.Sarung_Jok_Ket);
-            if(model.Sarung_Jok == "B"){
+            if(model.Sarung_Jok.equals("B")){
                 b_Sarung_Jok.setChecked(true);
             }
-            else if(model.Sarung_Jok == "R"){
+            else if(model.Sarung_Jok.equals("R")){
                 r_Sarung_Jok.setChecked(true);
             }
-            else if(model.Sarung_Jok == "T"){
+            else if(model.Sarung_Jok.equals("T")){
                 t_Sarung_Jok.setChecked(true);
             }
         }
         if(model.Sandaran_Kepala!=null){
             te_Sandaran_Kepala.setText(model.Sandaran_Kepala_Ket);
-            if(model.Sandaran_Kepala == "B"){
+            if(model.Sandaran_Kepala.equals("B")){
                 b_Sandaran_Kepala.setChecked(true);
             }
-            else if(model.Sandaran_Kepala == "R"){
+            else if(model.Sandaran_Kepala.equals("R")){
                 r_Sandaran_Kepala.setChecked(true);
             }
-            else if(model.Sandaran_Kepala == "T"){
+            else if(model.Sandaran_Kepala.equals("T")){
                 t_Sandaran_Kepala.setChecked(true);
             }
         }
         if(model.Spion_Dalam!=null){
             te_Spion_Dalam.setText(model.Spion_Dalam_Ket);
-            if(model.Spion_Dalam == "B"){
+            if(model.Spion_Dalam.equals("B")){
                 b_Spion_Dalam.setChecked(true);
             }
-            else if(model.Spion_Dalam == "R"){
+            else if(model.Spion_Dalam.equals("R")){
                 r_Spion_Dalam.setChecked(true);
             }
-            else if(model.Spion_Dalam == "T"){
+            else if(model.Spion_Dalam.equals("T")){
                 t_Spion_Dalam.setChecked(true);
             }
         }

@@ -63,85 +63,85 @@ public class Fragment_Ceklis6 extends Fragment {
 
         if(model.Kaca_Mobil_dan_Kaca_Film!=null){
             te_Kaca_Mobil.setText(model.Kaca_Mobil_dan_Kaca_Film_Ket);
-            if(model.Kaca_Mobil_dan_Kaca_Film == "B"){
+            if(model.Kaca_Mobil_dan_Kaca_Film.equals("B")){
                 b_Kaca_Mobil.setChecked(true);
             }
-            else if(model.Kaca_Mobil_dan_Kaca_Film == "R"){
+            else if(model.Kaca_Mobil_dan_Kaca_Film.equals("R")){
                 r_Kaca_Mobil.setChecked(true);
             }
-            else if(model.Kaca_Mobil_dan_Kaca_Film == "T"){
+            else if(model.Kaca_Mobil_dan_Kaca_Film.equals("T")){
                 t_Kaca_Mobil.setChecked(true);
             }
         }
         if(model.STNK!=null){
             te_STNK.setText(model.STNK_Ket);
-            if(model.STNK == "B"){
+            if(model.STNK.equals("B")){
                 b_STNK.setChecked(true);
             }
-            else if(model.STNK == "R"){
+            else if(model.STNK.equals("R")){
                 r_STNK.setChecked(true);
             }
-            else if(model.STNK == "T"){
+            else if(model.STNK.equals("T")){
                 t_STNK.setChecked(true);
             }
         }
         if(model.Buku_KIR_Stiker_Peneng!=null){
             te_Buku_KIR.setText(model.Buku_KIR_Stiker_Peneng_Ket);
-            if(model.Buku_KIR_Stiker_Peneng == "B"){
+            if(model.Buku_KIR_Stiker_Peneng.equals("B")){
                 b_Buku_KIR.setChecked(true);
             }
-            else if(model.Buku_KIR_Stiker_Peneng == "R"){
+            else if(model.Buku_KIR_Stiker_Peneng.equals("R")){
                 r_Buku_KIR.setChecked(true);
             }
-            else if(model.Buku_KIR_Stiker_Peneng == "T"){
+            else if(model.Buku_KIR_Stiker_Peneng.equals("T")){
                 t_Buku_KIR.setChecked(true);
             }
         }
         if(model.Owners_Manual_Book!=null){
             te_Owners_Manual.setText(model.Owners_Manual_Book_Ket);
-            if(model.Owners_Manual_Book == "B"){
+            if(model.Owners_Manual_Book.equals("B")){
                 b_Owners_Manual.setChecked(true);
             }
-            else if(model.Owners_Manual_Book == "R"){
+            else if(model.Owners_Manual_Book.equals("R")){
                 r_Owners_Manual.setChecked(true);
             }
-            else if(model.Owners_Manual_Book == "T"){
+            else if(model.Owners_Manual_Book.equals("T")){
                 t_Owners_Manual.setChecked(true);
             }
         }
         if(model.Buku_Service!=null){
             te_Buku_Service.setText(model.Buku_Service_Ket);
-            if(model.Buku_Service == "B"){
+            if(model.Buku_Service.equals("B")){
                 b_Buku_Service.setChecked(true);
             }
-            else if(model.Buku_Service == "R"){
+            else if(model.Buku_Service.equals("R")){
                 r_Buku_Service.setChecked(true);
             }
-            else if(model.Buku_Service == "T"){
+            else if(model.Buku_Service.equals("T")){
                 t_Buku_Service.setChecked(true);
             }
         }
         if(model.Ban_Serep!=null){
             te_Ban_Serep.setText(model.Ban_Serep_Ket);
-            if(model.Ban_Serep == "B"){
+            if(model.Ban_Serep.equals("B")){
                 b_Ban_Serep.setChecked(true);
             }
-            else if(model.Ban_Serep == "R") {
+            else if(model.Ban_Serep.equals("R")) {
                 r_Ban_Serep.setChecked(true);
             }
-            else if(model.Ban_Serep == "T"){
+            else if(model.Ban_Serep.equals("T")){
                 t_Ban_Serep.setChecked(true);
             }
         }
         if(model.Kunci_Roda_Busi_Pas_Tang!=null){
             te_Kunci_Roda.setText(model.Kunci_Roda_Busi_Pas_Tang_Ket);
-            if(model.Kunci_Roda_Busi_Pas_Tang == "B"){
+            if(model.Kunci_Roda_Busi_Pas_Tang.equals("B")){
                 b_Kunci_Roda.setChecked(true);
             }
-            else if(model.Kunci_Roda_Busi_Pas_Tang == "R"){
+            else if(model.Kunci_Roda_Busi_Pas_Tang.equals("R")){
                 r_Kunci_Roda.setChecked(true);
             }
-            else if(model.Kunci_Roda_Busi_Pas_Tang == "T"){
+            else if(model.Kunci_Roda_Busi_Pas_Tang.equals("T")){
                 t_Kunci_Roda.setChecked(true);
             }
         }

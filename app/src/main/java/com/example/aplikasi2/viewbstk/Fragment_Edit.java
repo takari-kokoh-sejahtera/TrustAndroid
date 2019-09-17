@@ -1,5 +1,6 @@
 package com.example.aplikasi2.viewbstk;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -10,10 +11,8 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.provider.Settings;
-import android.text.TextUtils;
+import android.provider.MediaStore;
 import android.util.Base64;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,9 +21,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -38,27 +35,31 @@ import com.example.aplikasi2.loginbstk.ApiClient;
 import com.example.aplikasi2.loginbstk.ApiInterface;
 import com.example.aplikasi2.loginbstk.ResponLogin;
 
-import java.util.List;
+import java.io.ByteArrayOutputStream;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Fragment_Delete extends Fragment {
-
+public class Fragment_Edit extends Fragment {
     public int BSTKBefore_ID;
     Context context;
     Model model;
     ApiInterface apiservice;
 
+    ImageView imageViewDepan;
+    ImageView imageViewBelakang;
+    ImageView imageViewKanan;
+    ImageView imageViewKiri;
+    ImageView imageViewSignature;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
         //region Declar from Layout
-        View view = inflater.inflate(R.layout.fragment_fragment__delete, container, false);
+        View view = inflater.inflate(R.layout.fragment_fragment__edit, container, false);
         TextView tvCompany_Name = (TextView) view.findViewById(R.id.txtCustomer);
         TextView tvNoPlat = (TextView) view.findViewById(R.id.txtPlatNo);
 
@@ -305,21 +306,24 @@ public class Fragment_Delete extends Fragment {
         final EditText edittext_km = (EditText) view.findViewById(R.id.textedit_km);
         final TextView text_seekbar = (TextView) view.findViewById(R.id.text_seekbar);
 
-        ImageView imageViewDepan = (ImageView) view.findViewById(R.id.imageviewDepan);
-        ImageView imageViewBelakang = (ImageView) view.findViewById(R.id.imageviewBelakang);
-        ImageView imageViewKanan = (ImageView) view.findViewById(R.id.imageviewKanan);
-        ImageView imageViewKiri = (ImageView) view.findViewById(R.id.imageviewKiri);
-        ImageView imageViewSignature = (ImageView) view.findViewById(R.id.imageviewSignature);
+        imageViewDepan = (ImageView) view.findViewById(R.id.imageviewDepan);
+        imageViewBelakang = (ImageView) view.findViewById(R.id.imageviewBelakang);
+        imageViewKanan = (ImageView) view.findViewById(R.id.imageviewKanan);
+        imageViewKiri = (ImageView) view.findViewById(R.id.imageviewKiri);
+        imageViewSignature = (ImageView) view.findViewById(R.id.imageviewSignature);
         TextView txtsignatureName = (TextView) view.findViewById(R.id.txtSignature);
 
         Button btnYes = (Button) view.findViewById(R.id.btnYes);
         Button btnNo = (Button) view.findViewById(R.id.btnNo);
 
+        ImageButton btnKameraDepan = (ImageButton) view.findViewById(R.id.button_camera_depan);
+        ImageButton btnKameraBelakang = (ImageButton) view.findViewById(R.id.button_camera_belakang);
+        ImageButton btnKameraKanan = (ImageButton) view.findViewById(R.id.button_camera_kanan);
+        ImageButton btnKameraKiri = (ImageButton) view.findViewById(R.id.button_camera_kiri);
+
         //endregion
 
-//        Bikin Layout jadi disable
-        LinearLayout layout = (LinearLayout) view.findViewById(R.id.layoutHeader);
-        Globals.enableControl(false, layout);
+
         context = this.getActivity();
         apiservice = ApiClient.getClient().create(ApiInterface.class);
 
@@ -876,47 +880,598 @@ public class Fragment_Delete extends Fragment {
             }
         });
 
-//        click yes
+
         btnYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                apiservice = ApiClient.getClient().create(ApiInterface.class);
-                apiservice.BSTKBeforeDelete(BSTKBefore_ID).enqueue(new Callback<ResponLogin>() {
-                    @Override
-                    public void onResponse(Call<ResponLogin> call, Response<ResponLogin> response) {
+                try {
+                    //region Get Checklist
+                    if (b_Automatic_Light_Switch.isChecked()) {
+                        model.Automatic_Light_Switch = "B";
+                    } else if (r_Automatic_Light_Switch.isChecked()) {
+                        model.Automatic_Light_Switch = "R";
+                    } else if (t_Automatic_Light_Switch.isChecked()) {
+                        model.Automatic_Light_Switch = "T";
+                    }
+                    model.Automatic_Light_Switch_Ket = te_Automatic_Light_Switch.getText().toString();
 
-                        ResponLogin respon = response.body();
-                        if (respon.getStatus().equals("Success")) {
-                            Toast.makeText(context, respon.getStatus(), Toast.LENGTH_SHORT).show();
-//                            Intent intent = new Intent(context, MenuUtama.class);
-//                            startActivity(intent);
-                            back_toView();
-                        } else if (respon.getStatus().equals("Error")) {
-                            Toast.makeText(context, respon.getMessage(), Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(context, "Error, No Message", Toast.LENGTH_SHORT).show();
+                    
+                    if (b_Lampu_Kecil.isChecked()) {
+                        model.Lampu_Kecil = "B";
+                    } else if (r_Lampu_Kecil.isChecked()) {
+                        model.Lampu_Kecil = "R";
+                    } else if (t_Lampu_Kecil.isChecked()) {
+                        model.Lampu_Kecil = "T";
+                    }
+                    model.Lampu_Kecil_Ket = te_Lampu_Kecil.getText().toString();
+                    
+                    if (b_Lampu_Dekat.isChecked()) {
+                        model.Lampu_Dekat = "B";
+                    } else if (r_Lampu_Dekat.isChecked()) {
+                        model.Lampu_Dekat = "R";
+                    } else if (t_Lampu_Dekat.isChecked()) {
+                        model.Lampu_Dekat = "T";
+                    }
+                    model.Lampu_Dekat_Ket = te_Lampu_Dekat.getText().toString();
+
+                    
+                    if (b_Lampu_Jauh.isChecked()) {
+                        model.Lampu_Jauh = "B";
+                    } else if (r_Lampu_Jauh.isChecked()) {
+                        model.Lampu_Jauh = "R";
+                    } else if (t_Lampu_Jauh.isChecked()) {
+                        model.Lampu_Jauh = "T";
+                    }
+                    model.Lampu_Jauh_Ket = te_Lampu_Jauh.getText().toString();
+                    
+                    if (b_Lampu_Kabut_Fog_Lamp.isChecked()) {
+                        model.Lampu_Kabut_Fog_Lamp = "B";
+                    } else if (r_Lampu_Kabut_Fog_Lamp.isChecked()) {
+                        model.Lampu_Kabut_Fog_Lamp = "R";
+                    } else if (t_Lampu_Kabut_Fog_Lamp.isChecked()) {
+                        model.Lampu_Kabut_Fog_Lamp = "T";
+                    }
+                    model.Lampu_Kabut_Fog_Lamp_Ket = te_Lampu_Kabut_Fog_Lamp.getText().toString();
+
+                    
+                    if (b_Lampu_Sign_Depan.isChecked()) {
+                        model.Lampu_Sign_Depan = "B";
+                    } else if (r_Lampu_Sign_Depan.isChecked()) {
+                        model.Lampu_Sign_Depan = "R";
+                    } else if (t_Lampu_Sign_Depan.isChecked()) {
+                        model.Lampu_Sign_Depan = "T";
+                    }
+                    model.Lampu_Sign_Depan_Ket = te_Lampu_Sign_Depan.getText().toString();
+
+                    
+                    if (b_Lampu_Sign_Belakang.isChecked()) {
+                        model.Lampu_Sign_Belakang = "B";
+                    } else if (r_Lampu_Sign_Belakang.isChecked()) {
+                        model.Lampu_Sign_Belakang = "R";
+                    } else if (t_Lampu_Sign_Belakang.isChecked()) {
+                        model.Lampu_Sign_Belakang = "T";
+                    }
+                    model.Lampu_Sign_Belakang_Ket = te_Lampu_Sign_Belakang.getText().toString();
+                    
+                    if (b_Lampu_Belakang.isChecked()) {
+                        model.Lampu_Belakang = "B";
+                    } else if (r_Lampu_Belakang.isChecked()) {
+                        model.Lampu_Belakang = "R";
+                    } else if (t_Lampu_Belakang.isChecked()) {
+                        model.Lampu_Belakang = "T";
+                    }
+                    model.Lampu_Belakang_Ket = te_Lampu_Belakang.getText().toString();
+                    
+                    if (b_Lampu_Rem.isChecked()) {
+                        model.Lampu_Rem = "B";
+                    } else if (r_Lampu_Rem.isChecked()) {
+                        model.Lampu_Rem = "R";
+                    } else if (t_Lampu_Rem.isChecked()) {
+                        model.Lampu_Rem = "T";
+                    }
+                    model.Lampu_Rem_Ket = te_Lampu_Rem.getText().toString();
+                    
+                    if (b_Lampu_Mundur.isChecked()) {
+                        model.Lampu_Mundur = "B";
+                    } else if (r_Lampu_Mundur.isChecked()) {
+                        model.Lampu_Mundur = "R";
+                    } else if (t_Lampu_Mundur.isChecked()) {
+                        model.Lampu_Mundur = "T";
+                    }
+                    model.Lampu_Mundur_Ket = te_Lampu_Mundur.getText().toString();
+                    
+                    if (b_Lampu_Dashboard.isChecked()) {
+                        model.Lampu_Dashboard = "B";
+                    } else if (r_Lampu_Dashboard.isChecked()) {
+                        model.Lampu_Dashboard = "R";
+                    } else if (t_Lampu_Dashboard.isChecked()) {
+                        model.Lampu_Dashboard = "T";
+                    }
+                    model.Lampu_Dashboard_Ket = te_Lampu_Dashboard.getText().toString();
+                    
+                    if (b_Lampu_Plafond_Depan_dan_Belakang.isChecked()) {
+                        model.Lampu_Plafond_Depan_dan_Belakang = "B";
+                    } else if (r_Lampu_Plafond_Depan_dan_Belakang.isChecked()) {
+                        model.Lampu_Plafond_Depan_dan_Belakang = "R";
+                    } else if (t_Lampu_Plafond_Depan_dan_Belakang.isChecked()) {
+                        model.Lampu_Plafond_Depan_dan_Belakang = "T";
+                    }
+                    model.Lampu_Plafond_Depan_dan_Belakang_Ket = te_Lampu_Plafond_Depan_dan_Belakang.getText().toString();
+                    
+                    if (b_Klakson.isChecked()) {
+                        model.Klakson = "B";
+                    } else if (r_Klakson.isChecked()) {
+                        model.Klakson = "R";
+                    } else if (t_Klakson.isChecked()) {
+                        model.Klakson = "T";
+                    }
+                    model.Klakson_Ket = te_Klakson.getText().toString();
+                    
+                    if (b_Antena.isChecked()) {
+                        model.Antena = "B";
+                    } else if (r_Antena.isChecked()) {
+                        model.Antena = "R";
+                    } else if (t_Antena.isChecked()) {
+                        model.Antena = "T";
+                    }
+                    model.Antena_Ket = te_Antena.getText().toString();
+                    
+                    if (b_Tape_Radio_CD_DVD_TV_Player.isChecked()) {
+                        model.Tape_Radio_CD_DVD_TV_Player = "B";
+                    } else if (r_Tape_Radio_CD_DVD_TV_Player.isChecked()) {
+                        model.Tape_Radio_CD_DVD_TV_Player = "R";
+                    } else if (t_Tape_Radio_CD_DVD_TV_Player.isChecked()) {
+                        model.Tape_Radio_CD_DVD_TV_Player = "T";
+                    }
+                    model.Tape_Radio_CD_DVD_TV_Player_Ket = te_Tape_Radio_CD_DVD_TV_Player.getText().toString();
+                    
+                    if (b_Remote_Tape_Radio_CD_DVD_TV_Player.isChecked()) {
+                        model.Remote_Tape_Radio_CD_DVD_TV_Player = "B";
+                    } else if (r_Remote_Tape_Radio_CD_DVD_TV_Player.isChecked()) {
+                        model.Remote_Tape_Radio_CD_DVD_TV_Player = "R";
+                    } else if (t_Remote_Tape_Radio_CD_DVD_TV_Player.isChecked()) {
+                        model.Remote_Tape_Radio_CD_DVD_TV_Player = "T";
+                    }
+                    model.Remote_Tape_Radio_CD_DVD_TV_Player_Ket = te_Remote_Tape_Radio_CD_DVD_TV_Player.getText().toString();
+                    
+                    if (b_Alarm_Remote_Key.isChecked()) {
+                        model.Alarm_Remote_Key = "B";
+                    } else if (r_Alarm_Remote_Key.isChecked()) {
+                        model.Alarm_Remote_Key = "R";
+                    } else if (t_Alarm_Remote_Key.isChecked()) {
+                        model.Alarm_Remote_Key = "T";
+                    }
+                    model.Alarm_Remote_Key_Ket = te_Alarm_Remote_Key.getText().toString();
+                    
+                    if (b_Central_Lock.isChecked()) {
+                        model.Central_Lock = "B";
+                    } else if (r_Central_Lock.isChecked()) {
+                        model.Central_Lock = "R";
+                    } else if (t_Central_Lock.isChecked()) {
+                        model.Central_Lock = "T";
+                    }
+                    model.Central_Lock_Ket = te_Central_Lock.getText().toString();
+                    
+                    if (b_Power_Window.isChecked()) {
+                        model.Power_Window = "B";
+                    } else if (r_Power_Window.isChecked()) {
+                        model.Power_Window = "R";
+                    } else if (t_Power_Window.isChecked()) {
+                        model.Power_Window = "T";
+                    }
+                    model.Power_Window_Ket = te_Power_Window.getText().toString();
+
+                    if (b_Switch_Mirror.isChecked()) {
+                        model.Switch_Mirror = "B";
+                    } else if (r_Switch_Mirror.isChecked()) {
+                        model.Switch_Mirror = "R";
+                    } else if (t_Switch_Mirror.isChecked()) {
+                        model.Switch_Mirror = "T";
+                    }
+                    model.Switch_Mirror_Ket = te_Switch_Mirror.getText().toString();
+                    
+                    if (b_Air_Conditioner.isChecked()) {
+                        model.Air_Conditioner = "B";
+                    } else if (r_Air_Conditioner.isChecked()) {
+                        model.Air_Conditioner = "R";
+                    } else if (t_Air_Conditioner.isChecked()) {
+                        model.Air_Conditioner = "T";
+                    }
+                    model.Air_Conditioner_Ket = te_Air_Conditioner.getText().toString();
+                    
+                    if (b_Safety_Belt.isChecked()) {
+                        model.Safety_Belt = "B";
+                    } else if (r_Safety_Belt.isChecked()) {
+                        model.Safety_Belt = "R";
+                    } else if (t_Safety_Belt.isChecked()) {
+                        model.Safety_Belt = "T";
+                    }
+                    model.Safety_Belt_Ket = te_Safety_Belt.getText().toString();
+                    
+                    if (b_Karpet.isChecked()) {
+                        model.Karpet = "B";
+                    } else if (r_Karpet.isChecked()) {
+                        model.Karpet = "R";
+                    } else if (t_Karpet.isChecked()) {
+                        model.Karpet = "T";
+                    }
+                    model.Karpet_Ket = te_Karpet.getText().toString();
+                    
+                    if (b_Lighter.isChecked()) {
+                        model.Lighter = "B";
+                    } else if (r_Lighter.isChecked()) {
+                        model.Lighter = "R";
+                    } else if (t_Lighter.isChecked()) {
+                        model.Lighter = "T";
+                    }
+                    model.Lighter_Ket = te_Lighter.getText().toString();
+                    
+                    if (b_Asbak.isChecked()) {
+                        model.Asbak = "B";
+                    } else if (r_Asbak.isChecked()) {
+                        model.Asbak = "R";
+                    } else if (t_Asbak.isChecked()) {
+                        model.Asbak = "T";
+                    }
+                    model.Asbak_Ket = te_Asbak.getText().toString();
+                    
+                    if (b_Sarung_Jok.isChecked()) {
+                        model.Sarung_Jok = "B";
+                    } else if (r_Sarung_Jok.isChecked()) {
+                        model.Sarung_Jok = "R";
+                    } else if (t_Sarung_Jok.isChecked()) {
+                        model.Sarung_Jok = "T";
+                    }
+                    model.Sarung_Jok_Ket = te_Sarung_Jok.getText().toString();
+                    
+                    if (b_Sandaran_Kepala.isChecked()) {
+                        model.Sandaran_Kepala = "B";
+                    } else if (r_Sandaran_Kepala.isChecked()) {
+                        model.Sandaran_Kepala = "R";
+                    } else if (t_Sandaran_Kepala.isChecked()) {
+                        model.Sandaran_Kepala = "T";
+                    }
+                    model.Sandaran_Kepala_Ket = te_Sandaran_Kepala.getText().toString();
+                    
+                    if (b_Spion_Dalam.isChecked()) {
+                        model.Spion_Dalam = "B";
+                    } else if (r_Spion_Dalam.isChecked()) {
+                        model.Spion_Dalam = "R";
+                    } else if (t_Spion_Dalam.isChecked()) {
+                        model.Spion_Dalam = "T";
+                    }
+                    model.Spion_Dalam_Ket = te_Spion_Dalam.getText().toString();
+                    
+                    if (b_Wiper_Blade.isChecked()) {
+                        model.Wiper_Blade = "B";
+                    } else if (r_Wiper_Blade.isChecked()) {
+                        model.Wiper_Blade = "R";
+                    } else if (t_Wiper_Blade.isChecked()) {
+                        model.Wiper_Blade = "T";
+                    }
+                    model.Wiper_Blade_Ket = te_Wiper_Blade.getText().toString();
+                    
+                    if (b_Windshield_Washer.isChecked()) {
+                        model.Windshield_Washer = "B";
+                    } else if (r_Windshield_Washer.isChecked()) {
+                        model.Windshield_Washer = "R";
+                    } else if (t_Windshield_Washer.isChecked()) {
+                        model.Windshield_Washer = "T";
+                    }
+                    model.Windshield_Washer_Ket = te_Windshield_Washer.getText().toString();
+                    
+                    if (b_Talang_Air.isChecked()) {
+                        model.Talang_Air = "B";
+                    } else if (r_Talang_Air.isChecked()) {
+                        model.Talang_Air = "R";
+                    } else if (t_Talang_Air.isChecked()) {
+                        model.Talang_Air = "T";
+                    }
+                    model.Talang_Air_Ket = te_Talang_Air.getText().toString();
+                    
+                    if (b_Fender_Lumpur_Depan_dan_Belakang.isChecked()) {
+                        model.Fender_Lumpur_Depan_dan_Belakang = "B";
+                    } else if (r_Fender_Lumpur_Depan_dan_Belakang.isChecked()) {
+                        model.Fender_Lumpur_Depan_dan_Belakang = "R";
+                    } else if (t_Fender_Lumpur_Depan_dan_Belakang.isChecked()) {
+                        model.Fender_Lumpur_Depan_dan_Belakang = "T";
+                    }
+                    model.Fender_Lumpur_Depan_dan_Belakang_Ket = te_Fender_Lumpur_Depan_dan_Belakang.getText().toString();
+                    
+                    if (b_Spion_Kiri_Kanan.isChecked()) {
+                        model.Spion_Kiri_Kanan = "B";
+                    } else if (r_Spion_Kiri_Kanan.isChecked()) {
+                        model.Spion_Kiri_Kanan = "R";
+                    } else if (t_Spion_Kiri_Kanan.isChecked()) {
+                        model.Spion_Kiri_Kanan = "T";
+                    }
+                    model.Spion_Kiri_Kanan_Ket = te_Spion_Kiri_Kanan.getText().toString();
+                    
+                    if (b_Tutup_Bensin.isChecked()) {
+                        model.Tutup_Bensin = "B";
+                    } else if (r_Tutup_Bensin.isChecked()) {
+                        model.Tutup_Bensin = "R";
+                    } else if (t_Tutup_Bensin.isChecked()) {
+                        model.Tutup_Bensin = "T";
+                    }
+                    model.Tutup_Bensin_Ket = te_Tutup_Bensin.getText().toString();
+                    
+                    if (b_Emblem_Logo.isChecked()) {
+                        model.Emblem_Logo = "B";
+                    } else if (r_Emblem_Logo.isChecked()) {
+                        model.Emblem_Logo = "R";
+                    } else if (t_Emblem_Logo.isChecked()) {
+                        model.Emblem_Logo = "T";
+                    }
+                    model.Emblem_Logo_Ket = te_Emblem_Logo.getText().toString();
+
+                    if (b_Kaca_Mobil_dan_Kaca_Film.isChecked()) {
+                        model.Kaca_Mobil_dan_Kaca_Film = "B";
+                    } else if (r_Kaca_Mobil_dan_Kaca_Film.isChecked()) {
+                        model.Kaca_Mobil_dan_Kaca_Film = "R";
+                    } else if (t_Kaca_Mobil_dan_Kaca_Film.isChecked()) {
+                        model.Kaca_Mobil_dan_Kaca_Film = "T";
+                    }
+                    model.Kaca_Mobil_dan_Kaca_Film_Ket = te_Kaca_Mobil_dan_Kaca_Film.getText().toString();
+                    
+                    if (b_STNK.isChecked()) {
+                        model.STNK = "B";
+                    } else if (r_STNK.isChecked()) {
+                        model.STNK = "R";
+                    } else if (t_STNK.isChecked()) {
+                        model.STNK = "T";
+                    }
+                    model.STNK_Ket = te_STNK.getText().toString();
+                    
+                    if (b_Buku_KIR_Stiker_Peneng.isChecked()) {
+                        model.Buku_KIR_Stiker_Peneng = "B";
+                    } else if (r_Buku_KIR_Stiker_Peneng.isChecked()) {
+                        model.Buku_KIR_Stiker_Peneng = "R";
+                    } else if (t_Buku_KIR_Stiker_Peneng.isChecked()) {
+                        model.Buku_KIR_Stiker_Peneng = "T";
+                    }
+                    model.Buku_KIR_Stiker_Peneng_Ket = te_Buku_KIR_Stiker_Peneng.getText().toString();
+                    
+                    if (b_Owners_Manual_Book.isChecked()) {
+                        model.Owners_Manual_Book = "B";
+                    } else if (r_Owners_Manual_Book.isChecked()) {
+                        model.Owners_Manual_Book = "R";
+                    } else if (t_Owners_Manual_Book.isChecked()) {
+                        model.Owners_Manual_Book = "T";
+                    }
+                    model.Owners_Manual_Book_Ket = te_Owners_Manual_Book.getText().toString();
+
+                    if (b_Buku_Service.isChecked()) {
+                        model.Buku_Service = "B";
+                    } else if (r_Buku_Service.isChecked()) {
+                        model.Buku_Service = "R";
+                    } else if (t_Buku_Service.isChecked()) {
+                        model.Buku_Service = "T";
+                    }
+                    model.Buku_Service_Ket = te_Buku_Service.getText().toString();
+                    
+                    if (b_Ban_Serep.isChecked()) {
+                        model.Ban_Serep = "B";
+                    } else if (r_Ban_Serep.isChecked()) {
+                        model.Ban_Serep = "R";
+                    } else if (t_Ban_Serep.isChecked()) {
+                        model.Ban_Serep = "T";
+                    }
+                    model.Ban_Serep_Ket = te_Ban_Serep.getText().toString();
+
+                    if (b_Kunci_Roda_Busi_Pas_Tang.isChecked()) {
+                        model.Kunci_Roda_Busi_Pas_Tang = "B";
+                    } else if (r_Kunci_Roda_Busi_Pas_Tang.isChecked()) {
+                        model.Kunci_Roda_Busi_Pas_Tang = "R";
+                    } else if (t_Kunci_Roda_Busi_Pas_Tang.isChecked()) {
+                        model.Kunci_Roda_Busi_Pas_Tang = "T";
+                    }
+                    model.Kunci_Roda_Busi_Pas_Tang_Ket = te_Kunci_Roda_Busi_Pas_Tang.getText().toString();
+                    
+                    if (b_Kunci_Stir.isChecked()) {
+                        model.Kunci_Stir = "B";
+                    } else if (r_Kunci_Stir.isChecked()) {
+                        model.Kunci_Stir = "R";
+                    } else if (t_Kunci_Stir.isChecked()) {
+                        model.Kunci_Stir = "T";
+                    }
+                    model.Kunci_Stir_Ket = te_Kunci_Stir.getText().toString();
+                    
+                    if (b_Dongkrak.isChecked()) {
+                        model.Dongkrak = "B";
+                    } else if (r_Dongkrak.isChecked()) {
+                        model.Dongkrak = "R";
+                    } else if (t_Dongkrak.isChecked()) {
+                        model.Dongkrak = "T";
+                    }
+                    model.Dongkrak_Ket = te_Dongkrak.getText().toString();
+
+                    if (b_P3K.isChecked()) {
+                        model.P3K = "B";
+                    } else if (r_P3K.isChecked()) {
+                        model.P3K = "R";
+                    } else if (t_P3K.isChecked()) {
+                        model.P3K = "T";
+                    }
+                    model.P3K_Ket = te_P3K.getText().toString();
+                    
+                    if (b_Segitiga_Pengaman.isChecked()) {
+                        model.Segitiga_Pengaman = "B";
+                    } else if (r_Segitiga_Pengaman.isChecked()) {
+                        model.Segitiga_Pengaman = "R";
+                    } else if (t_Segitiga_Pengaman.isChecked()) {
+                        model.Segitiga_Pengaman = "T";
+                    }
+                    model.Segitiga_Pengaman_Ket = te_Segitiga_Pengaman.getText().toString();
+
+                    if (b_Lap_Kanebo.isChecked()) {
+                        model.Lap_Kanebo = "B";
+                    } else if (r_Lap_Kanebo.isChecked()) {
+                        model.Lap_Kanebo = "R";
+                    } else if (t_Lap_Kanebo.isChecked()) {
+                        model.Lap_Kanebo = "T";
+                    }
+                    model.Lap_Kanebo_Ket = te_Lap_Kanebo.getText().toString();
+
+                    //endregion
+
+                    //region get Appar dll
+                    model.apar = spinner_appar.getSelectedItem().toString();
+                    model.fuel = spinner_fuel.getSelectedItem().toString();
+                    model.velg_ban = spinner_velg_ban.getSelectedItem().toString();
+                    model.tutup_dop = spinner_tutup_dop.getSelectedItem().toString();
+                    if (edittext_km.getText().toString() == ""){
+                        model.km = Integer.parseInt(edittext_km.getText().toString());
+                    }
+                    model.isi_tangki_ket = text_seekbar.getText().toString();
+                    model.isi_tangki = seekbar_bensin.getProgress();
+                    //endregion
+
+                    //region Camera and Signer
+                    model.signature = txtsignatureName.getText().toString();
+                    //endregion
+
+
+                    //region Save Data
+                    apiservice = ApiClient.getClient().create(ApiInterface.class);
+                    Globals g = (Globals)getActivity().getApplication();
+                    model.CreatedBy = g.getUser_ID();
+                    apiservice.EditBSTKBefore(model.Nama_Customer,model.Nomor_Plat_Kendaraan,model.Automatic_Light_Switch, model.Automatic_Light_Switch_Ket,model.Lampu_Kecil,
+                            model.Lampu_Kecil_Ket, model.Lampu_Dekat, model.Lampu_Dekat_Ket,model.Lampu_Jauh, model.Lampu_Jauh_Ket, model.Lampu_Kabut_Fog_Lamp,
+                            model.Lampu_Kabut_Fog_Lamp_Ket, model.Lampu_Sign_Depan,model.Lampu_Sign_Depan_Ket,model.Lampu_Sign_Belakang,model.Lampu_Sign_Belakang_Ket,
+                            model.Lampu_Belakang,model.Lampu_Belakang_Ket,model.Lampu_Rem,model.Lampu_Rem_Ket,model.Lampu_Mundur,model.Lampu_Mundur_Ket,
+                            model.Lampu_Dashboard,model.Lampu_Dashboard_Ket,model.Lampu_Plafond_Depan_dan_Belakang,model.Lampu_Plafond_Depan_dan_Belakang_Ket,
+                            model.Klakson,model.Klakson_Ket,model.Antena,model.Antena_Ket,model.Tape_Radio_CD_DVD_TV_Player,model.Tape_Radio_CD_DVD_TV_Player_Ket,
+                            model.Remote_Tape_Radio_CD_DVD_TV_Player,model.Remote_Tape_Radio_CD_DVD_TV_Player_Ket,model.Alarm_Remote_Key,model.Alarm_Remote_Key_Ket,
+                            model.Central_Lock,model.Central_Lock_Ket,model.Power_Window,model.Power_Window_Ket,model.Switch_Mirror,model.Switch_Mirror_Ket,
+                            model.Air_Conditioner,model.Air_Conditioner_Ket,model.Safety_Belt,model.Safety_Belt_Ket,model.Karpet,model.Karpet_Ket,model.Lighter,
+                            model.Lighter_Ket,model.Asbak,model.Asbak_Ket,model.Sarung_Jok,model.Sarung_Jok_Ket,model.Sandaran_Kepala,model.Sandaran_Kepala_Ket,
+                            model.Spion_Dalam,model.Spion_Dalam_Ket,model.Wiper_Blade,model.Wiper_Blade_Ket,model.Windshield_Washer,model.Windshield_Washer_Ket,
+                            model.Talang_Air,model.Talang_Air_Ket,model.Fender_Lumpur_Depan_dan_Belakang,model.Fender_Lumpur_Depan_dan_Belakang_Ket,model.Spion_Kiri_Kanan,
+                            model.Spion_Kiri_Kanan_Ket,model.Tutup_Bensin,model.Tutup_Bensin_Ket,model.Emblem_Logo,model.Emblem_Logo_Ket,model.Kaca_Mobil_dan_Kaca_Film,
+                            model.Kaca_Mobil_dan_Kaca_Film_Ket,model.STNK,model.STNK_Ket,model.Buku_KIR_Stiker_Peneng,model.Buku_KIR_Stiker_Peneng_Ket,model.Owners_Manual_Book,
+                            model.Owners_Manual_Book_Ket,model.Buku_Service,model.Buku_Service_Ket,model.Ban_Serep,model.Ban_Serep_Ket,model.Kunci_Roda_Busi_Pas_Tang,
+                            model.Kunci_Roda_Busi_Pas_Tang_Ket,model.Kunci_Stir,model.Kunci_Stir_Ket,model.Dongkrak,model.Dongkrak_Ket,model.P3K,model.P3K_Ket,model.Segitiga_Pengaman,
+                            model.Segitiga_Pengaman_Ket,model.Lap_Kanebo,model.Lap_Kanebo_Ket,model.Foto_Kendaraan_Tampak_Depan,
+                            model.Foto_Kendaraan_Tampak_Belakang,model.Foto_Kendaraan_Tampak_Samping_Kanan,model.Foto_Kendaraan_Tampak_Samping_Kiri,model.apar,model.fuel,
+                            model.isi_tangki,model.isi_tangki_ket,model.km,model.velg_ban,model.tutup_dop,model.signature,model.signature_image,model.CreatedBy, true,BSTKBefore_ID
+                    ).enqueue(new Callback<ResponLogin>() {
+                        @Override
+                        public void onResponse(Call<ResponLogin> call, Response<ResponLogin> response) {
+
+                            String stat = response.body().getStatus();
+                            if (stat.equals("Success")) {
+//                                Intent intent = new Intent(context, MenuUtama.class);
+//                                startActivity(intent);
+                                Toast.makeText(context, stat, Toast.LENGTH_SHORT).show();
+                                back_toView();
+                            } else if (stat.equals("Error")) {
+                                Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+
                         }
 
-                    }
+                        @Override
+                        public void onFailure(Call<ResponLogin> call, Throwable t) {
+                            //Toast.makeText(MainActivity.this,"Gagal Terhubung ke server", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context,t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
 
-                    @Override
-                    public void onFailure(Call<ResponLogin> call, Throwable t) {
-                        //Toast.makeText(MainActivity.this,"Gagal Terhubung ke server", Toast.LENGTH_SHORT).show();
-                        Toast.makeText(context, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    //endregion
 
-                    }
-                });
+                } catch (Exception e) {
+                    Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                }
+
             }
         });
-
+        btnKameraBelakang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent, 1);
+            }
+        });
+        btnKameraDepan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent, 2);
+            }
+        });
+        btnKameraKanan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent, 3);
+            }
+        });
+        btnKameraKiri.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent, 4);
+            }
+        });
         btnNo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 back_toView();
             }
         });
-
         return view;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if (resultCode == Activity.RESULT_OK && data != null) {
+                Bitmap bmp2 = (Bitmap) data.getExtras().get("data");
+                ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
+                bmp2.compress(Bitmap.CompressFormat.PNG, 100, stream2);
+                byte[] byteArray2 = stream2.toByteArray();
+                Bitmap bitmap2 = BitmapFactory.decodeByteArray(byteArray2, 0,
+                        byteArray2.length);
+                model.Foto_Kendaraan_Tampak_Belakang = Base64.encodeToString(byteArray2, Base64.DEFAULT);
+                imageViewBelakang.setImageBitmap(bitmap2);
+            }
+        }else if (requestCode == 2) {
+            if (resultCode == Activity.RESULT_OK && data != null) {
+                Bitmap bmp2 = (Bitmap) data.getExtras().get("data");
+                ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
+                bmp2.compress(Bitmap.CompressFormat.PNG, 100, stream2);
+                byte[] byteArray2 = stream2.toByteArray();
+                Bitmap bitmap2 = BitmapFactory.decodeByteArray(byteArray2, 0,
+                        byteArray2.length);
+                model.Foto_Kendaraan_Tampak_Depan = Base64.encodeToString(byteArray2, Base64.DEFAULT);
+                imageViewDepan.setImageBitmap(bitmap2);
+            }
+        }else if (requestCode == 3) {
+            if (resultCode == Activity.RESULT_OK && data != null) {
+                Bitmap bmp2 = (Bitmap) data.getExtras().get("data");
+                ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
+                bmp2.compress(Bitmap.CompressFormat.PNG, 100, stream2);
+                byte[] byteArray2 = stream2.toByteArray();
+                Bitmap bitmap2 = BitmapFactory.decodeByteArray(byteArray2, 0,
+                        byteArray2.length);
+                model.Foto_Kendaraan_Tampak_Samping_Kanan = Base64.encodeToString(byteArray2, Base64.DEFAULT);
+                imageViewKanan.setImageBitmap(bitmap2);
+            }
+        }else if (requestCode == 4) {
+            if (resultCode == Activity.RESULT_OK && data != null) {
+                Bitmap bmp2 = (Bitmap) data.getExtras().get("data");
+                ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
+                bmp2.compress(Bitmap.CompressFormat.PNG, 100, stream2);
+                byte[] byteArray2 = stream2.toByteArray();
+                Bitmap bitmap2 = BitmapFactory.decodeByteArray(byteArray2, 0,
+                        byteArray2.length);
+                model.Foto_Kendaraan_Tampak_Samping_Kiri = Base64.encodeToString(byteArray2, Base64.DEFAULT);
+                imageViewKiri.setImageBitmap(bitmap2);
+            }
+        }
     }
 
     private void back_toView() {
@@ -926,5 +1481,4 @@ public class Fragment_Delete extends Fragment {
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
-
 }
