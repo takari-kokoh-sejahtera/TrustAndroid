@@ -1,6 +1,7 @@
 package com.example.aplikasi2.loginbstk;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
     EditText input_username;
     EditText input_password;
     Button btn_Login;
+    androidx.appcompat.widget.AppCompatCheckBox chkRemimberMe;
+    private SharedPreferences loginPreferences;
+    private SharedPreferences.Editor loginPrefsEditor;
+    private Boolean saveLogin;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,12 +47,36 @@ public class MainActivity extends AppCompatActivity {
         input_username = (EditText) findViewById(R.id.input_username);
         input_password = (EditText) findViewById(R.id.input_password);
         btn_Login = (Button)findViewById(R.id.btn_login);
+        chkRemimberMe = (androidx.appcompat.widget.AppCompatCheckBox)findViewById(R.id.chkRemimberMe);
+
+        //region Remember Me Check Load
+        loginPreferences = getSharedPreferences("loginPrefs", MODE_PRIVATE);
+        loginPrefsEditor = loginPreferences.edit();
+        saveLogin = loginPreferences.getBoolean("saveLogin", false);
+        if (saveLogin == true) {
+            input_username.setText(loginPreferences.getString("username", ""));
+            input_password.setText(loginPreferences.getString("password", ""));
+            chkRemimberMe.setChecked(true);
+        }
+        //endregion
+
 
         apiservice = ApiClient.getClient().create(ApiInterface.class);
 
         btn_Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //region Remember Me Save
+                if (chkRemimberMe.isChecked()) {
+                    loginPrefsEditor.putBoolean("saveLogin", true);
+                    loginPrefsEditor.putString("username", input_username.getText().toString());
+                    loginPrefsEditor.putString("password", input_password.getText().toString());
+                    loginPrefsEditor.commit();
+                } else {
+                    loginPrefsEditor.clear();
+                    loginPrefsEditor.commit();
+                }
+                //endregion
 
                 loginUser();
 

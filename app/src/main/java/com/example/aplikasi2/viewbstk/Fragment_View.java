@@ -104,6 +104,9 @@ public class Fragment_View extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView txtOptionDigit =  view.findViewById(R.id.txtOptionDigit);
+//                if (images[position] == R.drawable.checked ){
+//                    txtOptionDigit.setEnabled(false);
+//                }
 
                 txtOptionDigit.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -195,11 +198,16 @@ public class Fragment_View extends Fragment {
             ImageView images = row.findViewById(R.id.image);
             TextView myTitle = row.findViewById(R.id.textView1);
             TextView myDescription = row.findViewById(R.id.textView2);
+            TextView txtOptDigit = row.findViewById(R.id.txtOptionDigit);
 
             // now set our resources on views
             images.setImageResource(rImgs[position]);
             myTitle.setText(rTitle[position]);
             myDescription.setText(rDescription[position]);
+
+            if (rImgs[position] == R.drawable.checked){
+                txtOptDigit.setVisibility(View.GONE);
+            }
 
             return row;
         }

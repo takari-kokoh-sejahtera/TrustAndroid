@@ -53,6 +53,14 @@
             android:textSize="17dp"
             android:hint="Password"
             android:inputType="textPassword" />
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/chkRemimberMe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="70dp"
+            android:text="Remember Me">
+        </androidx.appcompat.widget.AppCompatCheckBox>
 
     </LinearLayout>
 
